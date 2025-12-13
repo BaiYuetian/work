@@ -2,6 +2,10 @@
 <html>
 <head>
 <title>Account</title>
+
+<script src="js/registeredUser.js"></script><!-- accunt.js工具函数 -->
+    <script src="js/accunt.js"></script>
+
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="js/jquery.min.js"></script>
@@ -321,19 +325,35 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>
 		<div class="content">
 		<div class="account-in">
-							<h2>账户</h2>
-							<div class="col-md-7 account-top">
+							<h2>登录</h2>
+							<div class="col-md-7 account-top" id="useEmailLogIn">
 								<form>
-									
-								<div> 	
-									<span>电子邮件*</span>
-									<input type="text"> 
+								<div>
+									<input type="email" placeholder="电子邮箱">
 								</div>
-								<div> 
-									<span  class="pass">密码*</span>
-									<input type="password">
+								<div>
+
+									<input type="password" placeholder="密码">
 								</div>				
-									<input type="submit" value="Login"> 
+									<input type="submit" value="登录">
+                                    <button type="button" id="loginSwitchE" style="background:none; border:none; color:blue; text-decoration:underline; cursor:pointer;">
+  使用用户名登录
+</button>
+								</form>
+							</div>
+							<div class="col-md-7 account-top" id="useUserNameLogIn">
+								<form>
+								<div>
+									<input type="text" placeholder="用户名称">
+								</div>
+								<div>
+
+									<input type="password" placeholder="密码">
+								</div>
+									<input type="submit" value="登录">
+                                    <button type="button" id="loginSwitchU" style="background:none; border:none; color:blue; text-decoration:underline; cursor:pointer;">
+  使用邮箱登录
+</button>
 								</form>
 							</div>
 							<div class="col-md-5 left-account ">
@@ -341,7 +361,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<div class="five-in">
 								<h1>25% </h1><span>折扣</span>
 								</div>
-								<a href="register.html" class="create">创建一个账户</a>
+								<a href="register.html" id="registerLink" class="create">创建一个账户</a>
 								<div class="clearfix"> </div>
 							</div>
 						<div class="clearfix"> </div>

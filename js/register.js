@@ -1,27 +1,20 @@
 function showSuccessModal() {
-  // 🔍 解析 retURL
   const urlParams = new URLSearchParams(window.location.search);
   const retURL = urlParams.get("retURL");
 
-  // 🎯 确定跳转目标和按钮文案
-  let targetURL = "index.html"; // 默认首页
+  let targetURL = "index.html";
   let buttonText = "返回首页";
 
   if (retURL) {
     try {
-      // ✅ 安全校验：只允许同源或相对路径（拒绝跨域/协议外跳转）
       const resolved = new URL(retURL, window.location.origin);
-      // 允许相对路径（如 /dashboard）和同源绝对路径（如 https://yoursite.com/profile）
       if (resolved.origin === window.location.origin) {
         targetURL = resolved.href;
         buttonText = "返回上一页";
       }
     } catch (e) {
-    //  console.warn("retURL 格式无效，将使用默认首页", e);
     }
   }
-
-  // 🧱 创建遮罩层
   const backdrop = document.createElement("div");
   backdrop.id = "successModalBackdrop";
   backdrop.style.cssText = `
@@ -31,7 +24,6 @@ function showSuccessModal() {
     margin: 0; padding: 0;
   `;
 
-  // 📦 创建弹窗内容
   const modal = document.createElement("div");
   modal.style.cssText = `
     background: white; border-radius: 8px; padding: 28px;
@@ -58,14 +50,13 @@ function showSuccessModal() {
         border-radius: 6px;
         cursor: pointer;
         font-size: 14px;
-      ">${buttonText}</button> <!-- ✅ 动态按钮文字 -->
+      ">${buttonText}</button>  
     </div>
   `;
 
   backdrop.appendChild(modal);
   document.body.appendChild(backdrop);
 
-  // 🖱️ 绑定事件
   modal.querySelector("#btnCancel").addEventListener("click", () => {
     document.body.removeChild(backdrop);
   });
@@ -74,68 +65,6 @@ function showSuccessModal() {
     window.location.href = targetURL;
   });
 
-  // ⌨️ ESC 关闭支持
-  const handleEsc = (e) => {
-    if (e.key === "Escape") {
-      document.body.removeChild(backdrop);
-      document.removeEventListener("keydown", handleEsc);
-    }
-  };
-  document.addEventListener("keydown", handleEsc);
-}
-function getRegisteredUsers() {
-  const saved = localStorage.getItem("RegisteredUsersList");
-  try {
-    return Array.isArray(JSON.parse(saved)) ? JSON.parse(saved) : [];
-  } catch (e) {
-    return [];
-  }
-}
-
-function addRegisteredUser(userName, password, email) {
-  const users = getRegisteredUsers();
-  users.push({ userName, email, password });
-  localStorage.setItem("RegisteredUsersList", JSON.stringify(users));
-}
-
-function isUserNameTaken(userName) {
-  if (!userName || typeof userName !== 'string') {
-    return false;
-  }
-  const target = userName.trim().toLowerCase();
-  for (let i = 0; i < registeredUsersList.length; i++) {
-    const user = registeredUsersList[i];
-    let u = "";
-    if (user && typeof user === 'object' && user.userName != null) {
-      u = String(user.userName).trim().toLowerCase();
-    }
-    if (u === target) {
-      return true;
-    }
-  }
-  return false;
-}
-
-function isEmailTaken(email) {
-  if (!email || typeof email !== 'string') {
-    return false;
-  }
-  const target = email.trim().toLowerCase();
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!emailRegex.test(target)) {
-    return false;
-  }
-  for (let i = 0; i < registeredUsersList.length; i++) {
-    const user = registeredUsersList[i];
-    let e = "";
-    if (user && typeof user === 'object' && user.email != null) {
-      e = String(user.email).trim().toLowerCase();
-    }
-    if (e === target) {
-      return true;
-    }
-  }
-  return false;
 }
 
 addEventListener("submit",function(event){

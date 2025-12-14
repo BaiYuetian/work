@@ -13,7 +13,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Mihstore Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<script type="application/x-javascript"> 
+addEventListener("load", function() { 
+	setTimeout(hideURLbar, 0); }, false); 
+	function hideURLbar(){ window.scrollTo(0,1); 
+	} </script>
 <!--fonts-->
 <link href='http://fonts.useso.com/css?family=Cabin:400,500,600,700' rel='stylesheet' type='text/css'>
 <!--//fonts-->
@@ -54,7 +58,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					source_image_height: 1200,
 					show_hint: true,
 					click_callback: function(image_anchor, instance_id){
-						alert('Callback example:\nYou clicked on an image with the anchor: "'+image_anchor+'"\n(in Etalage instance: "'+instance_id+'")');
+						// alert('Callback example:\nYou clicked on an image with the anchor: "'+image_anchor+'"\n(in Etalage instance: "'+instance_id+'")');
 					}
 				});
 
@@ -74,18 +78,27 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href="css/megamenu.css" rel="stylesheet" type="text/css" media="all" />
 <script type="text/javascript" src="js/megamenu.js"></script>
 <script>$(document).ready(function(){$(".megamenu").megamenu();});</script>		
+<!-- MY　-->
+ <style type="text/css">
+
+</style>
+ <script src="js/public.js"></script>
+<script src="js/single.js">	</script>
+<!-- ／MY　-->
 </head>
 <body> 
 <!--header-->
 	<div class="container">
 		<div class="header" id="home">	
 			<div class="header-para">
-				<p>The quick brown <span>fox jumps over a lazy dog. DJs flock by when MTV ax quiz prog.</span></p>	
+				<p>
+					<Span id="showTime"></Span></p>	
 			</div>	
 			<ul class="header-in">
-				<li><a href="account.html">MY ACCOUNT</a> </li>
-				<li><a href="wishlist.html">  WISHLIST</a></li>
-				<li ><a href="contact.html" > CONTACT US</a></li>
+				<li><a href="account.html">我</a> </li>
+				<li><a href="wishlist.html">愿望单</a></li>
+				<li><a href="cart.html">购物车</a></li>
+				<li ><a href="contact.html" >联系我们</a></li>
 			</ul>
 				<div class="clearfix"> </div>
 		</div>
@@ -96,7 +109,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 			<div class="header-top-on">
 				<ul class="social-in">
-					<li><a href="#"><i> </i></a></li>						
+					<li><a href="#"><i></i></a></li>						
 					<li><a href="#"><i class="ic"> </i></a></li>
 					<li><a href="#"><i class="ic1"> </i></a></li>
 					<li><a href="#"><i class="ic2"> </i></a></li>
@@ -106,203 +119,52 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="clearfix"> </div>
 		</div>
 		<div class="header-bottom">
-				<div class="top-nav">
-				
+			<div class="top-nav">
 			  <ul class="megamenu skyblue">
-				      <li class="active grid"><a  href="index.html">商品</a>
-					    <div class="megapanel">
-						<div class="row">
-							<div class="col1">
-								<div class="h_nav">
-									<ul>
-										<li><a href="store.html">饰品</a></li>
-										<li><a href="store.html">包</a></li>
-										<li><a href="store.html">帽子</a></li>
-										<li><a href="store.html">连帽衫与卫衣</a></li>
-										<li><a href="store.html">夹克与外套</a></li>
-										<li><a href="store.html">牛仔裤</a></li>
-										<li><a href="store.html">珠宝</a></li>
-										<li><a href="store.html">毛衣与开衫</a></li>
-										<li><a href="store.html">皮夹克</a></li>
-										<li><a href="store.html">长袖T恤</a></li>
-										<li><a href="store.html">家居服</a></li>
-									</ul>
+					<li class="active grid">
+						<a  href="#isProductHere ">商品</a>
+						<div class="megapanel">
+							<div class="row">
+								<div class="col1">
+									<div class="h_nav">
+										<ul id="showRandomProductAtnav">
+											<!-- 商品名 js生成-->
+										</ul>	
+									</div>							
 								</div>
 							</div>
-							<div class="col1">
-								<div class="h_nav">
-									<ul>
-										<li><a href="store.html">衬衫</a></li>
-										<li><a href="store.html">鞋及靴子</a></li>
-										<li><a href="store.html">短裤</a></li>
-										<li><a href="store.html">西装与西装外套</a></li>
-										<li><a href="store.html">太阳镜</a></li>
-										<li><a href="store.html">运动裤</a></li>
-										<li><a href="store.html">泳装</a></li>
-										<li><a href="store.html">裤子与卡其裤</a></li>
-										<li><a href="store.html">T恤</a></li>
-										<li><a href="store.html">内衣与袜子</a></li>
-										<li><a href="store.html">背心</a></li>
-									</ul>
-								</div>
-							</div>
-							<div class="col1">
-								<div class="h_nav">
-									<h4>知名品牌</h4>
-									<ul>
-                                        <!-- 品牌名，勿动 -->
-										<li><a href="store.html">Levis</a></li>
-										<li><a href="store.html">Persol</a></li>
-										<li><a href="store.html">Nike</a></li>
-										<li><a href="store.html">Edwin</a></li>
-										<li><a href="store.html">New Balance</a></li>
-										<li><a href="store.html">Jack & Jones</a></li>
-										<li><a href="store.html">Paul Smith</a></li>
-										<li><a href="store.html">Ray-Ban</a></li>
-										<li><a href="store.html">Wood Wood</a></li>
-                                        <!-- /品牌名，勿动 -->
-									</ul>
-								</div>
-							</div>
-						  </div>
 						</div>
 					</li>
-					<li><a class="pink"  href="404.html">创意</a></li>
-				    <li class="grid"><a  href="#">品牌</a>
-					   <div class="megapanel">
-						<div class="row">
-							<div class="col1">
-								<div class="h_nav">
-									<ul>
-										<li><a href="store.html">饰品</a></li>
-										<li><a href="store.html">包</a></li>
-										<li><a href="store.html">帽子</a></li>
-										<li><a href="store.html">连帽衫与卫衣</a></li>
-										<li><a href="store.html">夹克与外套</a></li>
-										<li><a href="store.html">牛仔裤</a></li>
-										<li><a href="store.html">珠宝</a></li>
-										<li><a href="store.html">毛衣与开衫</a></li>
-										<li><a href="store.html">皮夹克</a></li>
-										<li><a href="store.html">长袖T恤</a></li>
-										<li><a href="store.html">家居服</a></li>
-									</ul>
+					<li class="active grid">
+						<a  href="">品牌</a>
+						<div class="megapanel">
+							<div class="row">
+								<div class="col1">
+									<div class="h_nav">
+										<ul id="showBrandAtnav">
+										</ul>	
+									</div>							
 								</div>
 							</div>
-							<div class="col1">
-								<div class="h_nav">
-									<ul>
-										<li><a href="store.html">衬衫</a></li>
-										<li><a href="store.html">鞋及靴子</a></li>
-										<li><a href="store.html">短裤</a></li>
-										<li><a href="store.html">西装与西装外套</a></li>
-										<li><a href="store.html">太阳镜</a></li>
-										<li><a href="store.html">运动裤</a></li>
-										<li><a href="store.html">泳装</a></li>
-										<li><a href="store.html">裤子与卡其裤</a></li>
-										<li><a href="store.html">T恤</a></li>
-										<li><a href="store.html">内衣与袜子</a></li>
-										<li><a href="store.html">背心</a></li>
-									</ul>
-								</div>
-							</div>
-							<div class="col1">
-								<div class="h_nav">
-									<h4>知名品牌</h4>
-									<ul>
-                                        <!-- 品牌名，勿动 -->
-										<li><a href="store.html">Levis</a></li>
-										<li><a href="store.html">Persol</a></li>
-										<li><a href="store.html">Nike</a></li>
-										<li><a href="store.html">Edwin</a></li>
-										<li><a href="store.html">New Balance</a></li>
-										<li><a href="store.html">Jack & Jones</a></li>
-										<li><a href="store.html">Paul Smith</a></li>
-										<li><a href="store.html">Ray-Ban</a></li>
-										<li><a href="store.html">Wood Wood</a></li>
-                                        <!-- /品牌名，勿动 -->
-									</ul>
-								</div>
-							</div>
-						  </div>
 						</div>
-			    </li>
+					</li>
+				</ul> 
+			</div>
 
-				<li><a class="pink" href="gifts.html">礼物</a></li>
-			 <li class="grid"><a  href="#">店铺</a>
-					   <div class="megapanel">
-						<div class="row">
-							<div class="col1">
-								<div class="h_nav">
-									<ul>
-										<li><a href="store.html">饰品</a></li>
-										<li><a href="store.html">包</a></li>
-										<li><a href="store.html">帽子</a></li>
-										<li><a href="store.html">连帽衫与卫衣</a></li>
-										<li><a href="store.html">夹克与外套</a></li>
-										<li><a href="store.html">牛仔裤</a></li>
-										<li><a href="store.html">珠宝</a></li>
-										<li><a href="store.html">毛衣与开衫</a></li>
-										<li><a href="store.html">皮夹克</a></li>
-										<li><a href="store.html">长袖T恤</a></li>
-										<li><a href="store.html">家居服</a></li>
-									</ul>
-								</div>
-							</div>
-							<div class="col1">
-								<div class="h_nav">
-									<ul>
-										<li><a href="store.html">衬衫</a></li>
-										<li><a href="store.html">鞋及靴子</a></li>
-										<li><a href="store.html">短裤</a></li>
-										<li><a href="store.html">西装与西装外套</a></li>
-										<li><a href="store.html">太阳镜</a></li>
-										<li><a href="store.html">运动裤</a></li>
-										<li><a href="store.html">泳装</a></li>
-										<li><a href="store.html">裤子与卡其裤</a></li>
-										<li><a href="store.html">T恤</a></li>
-										<li><a href="store.html">内衣与袜子</a></li>
-										<li><a href="store.html">背心</a></li>
-									</ul>
-								</div>
-							</div>
-							<div class="col1">
-								<div class="h_nav">
-									<h4>知名品牌</h4>
-									<ul>
-                                        <!-- 品牌名，勿动 -->
-										<li><a href="store.html">Levis</a></li>
-										<li><a href="store.html">Persol</a></li>
-										<li><a href="store.html">Nike</a></li>
-										<li><a href="store.html">Edwin</a></li>
-										<li><a href="store.html">New Balance</a></li>
-										<li><a href="store.html">Jack & Jones</a></li>
-										<li><a href="store.html">Paul Smith</a></li>
-										<li><a href="store.html">Ray-Ban</a></li>
-										<li><a href="store.html">Wood Wood</a></li>
-                                        <!-- /品牌名，勿动 -->
-									</ul>
-								</div>
-							</div>
-						  </div>
-						</div>
-			    </li>
-
-			  </ul>
-				</div>
-					<div class="cart icon1 sub-icon1">
-										<h6 >购物车:
-						<span class="item">3 项</span>
-						<span class="rate">70$</span>
+		<div class="cart icon1 sub-icon1">
+			<h6 >购物车:
+				<span class="item">3 项</span>
+				<span class="rate">70$</span>
 						<li><a href="#" class="round"> </a>
 						<ul class="sub-icon1 list">
 						  <h3>最近新增的物品(3)</h3>
 						  <div class="shopping_cart">
 							  <div class="cart_box">
 							   	 <div class="message">
-							   	     <div class="alert-close"> </div>
+							   	     <div class="alert-close"> </div> 
 										<div class="list_img"><img src="images/si.jpg" class="img-responsive" alt=""></div>
 										<div class="list_desc"><h4><a href="#">velit esse molestie</a></h4><!-- 商品名 -->
-
+										
 										<a href="#" class="offer">1 offer applied</a>
 										</div>
 		                              <div class="clearfix"></div>
@@ -310,7 +172,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	                            </div>
 	                           <div class="cart_box">
 							   	 <div class="message1">
-							   	     <div class="alert-close1"> </div>
+							   	     <div class="alert-close1"> </div> 
 										<div class="list_img"><img src="images/si1.jpg" class="img-responsive" alt=""></div>
 										<div class="list_desc"><h4><a href="#">velit esse molestie</a></h4><!-- 商品名 -->
 										<a href="#" class="offer">1 offer applied</a>
@@ -320,10 +182,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	                            </div>
 								<div class="cart_box">
 							   	 <div class="message2">
-							   	     <div class="alert-close2"> </div>
+							   	     <div class="alert-close2"> </div> 
 										<div class="list_img"><img src="images/si.jpg" class="img-responsive" alt=""></div>
 										<div class="list_desc"><h4><a href="#">velit esse molestie</a></h4>
-
+										
 										<a href="#" class="offer">1 offer applied</a>
 										</div>
 		                              <div class="clearfix"></div>
@@ -335,70 +197,56 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</ul>
 					</li>
 </h6>
-
+						
 					</div>
 			<div class="clearfix"> </div>
 		</div>
 		<div class="page">
-			<h6><a href="#">Page Title</a><b>|</b>Page description The quick, brown <span class="for">fox jumps over a lazy dog. DJs flock by when TV ax quiz prog.</span></h6>
 		</div>
 		<div class="content">
-
 			<div class="col-md-9">
 			<div class="col-md-5 single-top">	
-						<ul id="etalage">
-							<li>
-								<a href="optionallink.html">
-									<img class="etalage_thumb_image img-responsive" src="images/s1.jpg" alt="" >
-									<img class="etalage_source_image img-responsive" src="images/s11.jpg" alt="" >
-								</a>
-							</li>
-							<li>
-								<img class="etalage_thumb_image img-responsive" src="images/s2.jpg" alt="" >
-								<img class="etalage_source_image img-responsive" src="images/s12.jpg" alt="" >
-							</li>
-							<li>
-								<img class="etalage_thumb_image img-responsive" src="images/s3.jpg" alt=""  >
-								<img class="etalage_source_image img-responsive" src="images/s13.jpg" alt="" >
-							</li>
-						    <li>
-								<img class="etalage_thumb_image img-responsive" src="images/s4.jpg"  alt="" >
-								<img class="etalage_source_image img-responsive" src="images/s14.jpg" alt="" >
-							</li>
-						</ul>
-
+				<ul id="etalage">
+					<li>
+						<a href="#" id="showImg" title="图片正在加载或加载失败"> <!-- 实现放大图片查看 -->
+							<img class="etalage_thumb_image img-responsive" src="" alt=""><!--缩略图 -->
+							<img class="etalage_source_image img-responsive" src="" alt="" >
+						</a>
+					</li>
+				</ul>
 					</div>	
 					<div class="col-md-7 single-top-in">
 						<div class="single-para">
-							<h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h4>
+							<h4 id="showProductName"></h4>
 							<div class="para-grid">
-								<span  class="add-to">$32.8</span>
-								<a href="#" class=" cart-to">Add to Cart</a>					
+								<span  class="add-to" id="showProductPrice">￥:??</span>
+								<a href="#" class=" cart-to"id="addToCart">添加到购物车</a>					
 								<div class="clearfix"></div>
 							 </div>
-							<h5>100 items in stock</h5>
+							<h5>神秘信息</h5>
 							<div class="available">
-								<h6>Available Options :</h6>
+								<h6>规格:</h6>
 								<ul>
-									
-								<li>Size:<select>
-									<option>Large</option>
-									<option>Medium</option>
-									<option>small</option>
-									<option>Large</option>
-									<option>small</option>
-								</select></li>
-								<li>Cost:
-										<select>
-										<option>U.S.Dollar</option>
-										<option>Euro</option>
-									</select></li>
+	
+								<li id="showProductColor">颜色:
+									<select>
+										<!-- <option>js注入</option> -->
+									</select>
+								</li>
+								<li>容量:
+									<select>
+										<option>12GB+256GB</option>
+										<option>12GB+512GB</option>
+										<option>16GB+256GB</option>
+										<option>16GB+512GB</option>
+									</select>
+								</li>
+						
 							</ul>
 						</div>
 							
-								<a href="#" class="cart-an ">More details</a>
 							<div class="share">
-							<h4>Share Product :</h4>
+							<h4>分享到社交媒体:</h4>
 							<ul class="share_nav">
 								<li><a href="#"><img src="images/facebook.png" title="facebook"></a></li>
 								<li><a href="#"><img src="images/twitter.png" title="Twiiter"></a></li>
@@ -409,13 +257,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</div>
 					</div>
 				<div class="clearfix"> </div>
- <ul id="flexiselDemo1">
-			<li><img src="images/pi.jpg" /><div class="grid-flex"><a href="#">Lorem</a><p>Rs 850</p></div></li>
-			<li><img src="images/pi1.jpg" /><div class="grid-flex"><a href="#">Amet</a><p>Rs 850</p></div></li>
-			<li><img src="images/pi2.jpg" /><div class="grid-flex"><a href="#">Simple</a><p>Rs 850</p></div></li>
-			<li><img src="images/pi3.jpg" /><div class="grid-flex"><a href="#">Text</a><p>Rs 850</p></div></li>
-			<li><img src="images/pi4.jpg" /><div class="grid-flex"><a href="#">Sit</a><p>Rs 850</p></div></li>
-		 </ul>
+			 <ul id="flexiselDemo1">
+					<!-- 图片轮播 js生成 
+					<li>
+						<img src="img/HUAWEI/HUAWEI Mate 70 Air.jpg" />
+						<div class="grid-flex"> <!- style.css l-1012 ->
+							<a href="#">productName</a>
+							<p>brand</p>
+						</div>
+					</li>
+					-->
+			 </ul>
+			 <!-- 
 	    <script type="text/javascript">
 		 $(window).load(function() {
 			$("#flexiselDemo1").flexisel({
@@ -442,11 +295,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		    });
 		    
 		});
-	</script>
-	<script type="text/javascript" src="js/jquery.flexisel.js"></script>
-<!---->
-
-<!---->
+	</script>-->
+	<script type="text/javascript" src="js/jquery.flexisel.js"></script><!-- <- jq轮播 -->
 			</div>
 <div class="col-md-3 col-md">
 			<div class=" possible-about">
@@ -754,5 +604,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</div>
 
 	<!---->
+
+
+
+
+</script>
+
+
 </body>
 </html>

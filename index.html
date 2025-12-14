@@ -67,6 +67,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script type="text/javascript" src="js/megamenu.js"></script>
 <script>$(document).ready(function(){$(".megamenu").megamenu();});</script>				
 
+
+
+<!-- MY  -->
+<script src="js/indexFor.js"></script>
+<link rel="stylesheet" href="css/indexFor.css">
+<!-- /MY  -->
 </head>
 <body> 
 <!--header-->
@@ -85,7 +91,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<!---->
 		<div class="header-top">
 			<div class="logo">
-				<a href="index.html"><img src="images/logo.png" alt="" ></a>
+				<a href="index.html"><img src="images/logo.png" alt="logo" ></a>
 			</div>
 			<div class="header-top-on">
 				<ul class="social-in">
@@ -99,193 +105,42 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="clearfix"> </div>
 		</div>
 		<div class="header-bottom">
-				<div class="top-nav">
-				
+			<div class="top-nav">
 			  <ul class="megamenu skyblue">
-				      <li class="active grid"><a  href="index.html">商品</a>
-					    <div class="megapanel">
-						<div class="row">
-							<div class="col1">
-								<div class="h_nav">
-									<ul>
-										<li><a href="store.html">饰品</a></li>
-										<li><a href="store.html">包</a></li>
-										<li><a href="store.html">帽子</a></li>
-										<li><a href="store.html">连帽衫与卫衣</a></li>
-										<li><a href="store.html">夹克与外套</a></li>
-										<li><a href="store.html">牛仔裤</a></li>
-										<li><a href="store.html">珠宝</a></li>
-										<li><a href="store.html">毛衣与开衫</a></li>
-										<li><a href="store.html">皮夹克</a></li>
-										<li><a href="store.html">长袖T恤</a></li>
-										<li><a href="store.html">家居服</a></li>
-									</ul>	
-								</div>							
+					<li class="active grid">
+						<a  href="#isProductHere ">商品</a>
+						<div class="megapanel">
+							<div class="row">
+								<div class="col1">
+									<div class="h_nav">
+										<ul id="showRandomProductAtnav">
+											<!-- 商品名 js生成-->
+										</ul>	
+									</div>							
+								</div>
 							</div>
-							<div class="col1">
-								<div class="h_nav">
-									<ul>
-										<li><a href="store.html">衬衫</a></li>
-										<li><a href="store.html">鞋及靴子</a></li>
-										<li><a href="store.html">短裤</a></li>
-										<li><a href="store.html">西装与西装外套</a></li>
-										<li><a href="store.html">太阳镜</a></li>
-										<li><a href="store.html">运动裤</a></li>
-										<li><a href="store.html">泳装</a></li>
-										<li><a href="store.html">裤子与卡其裤</a></li>
-										<li><a href="store.html">T恤</a></li>
-										<li><a href="store.html">内衣与袜子</a></li>
-										<li><a href="store.html">背心</a></li>
-									</ul>	
-								</div>							
-							</div>
-							<div class="col1">
-								<div class="h_nav">
-									<h4>知名品牌</h4>
-									<ul>
-                                        <!-- 品牌名，勿动 -->
-										<li><a href="store.html">Levis</a></li>
-										<li><a href="store.html">Persol</a></li>
-										<li><a href="store.html">Nike</a></li>
-										<li><a href="store.html">Edwin</a></li>
-										<li><a href="store.html">New Balance</a></li>
-										<li><a href="store.html">Jack & Jones</a></li>
-										<li><a href="store.html">Paul Smith</a></li>
-										<li><a href="store.html">Ray-Ban</a></li>
-										<li><a href="store.html">Wood Wood</a></li>
-                                        <!-- /品牌名，勿动 -->
-									</ul>	
-								</div>												
-							</div>
-						  </div>
 						</div>
 					</li>
-					<li><a class="pink"  href="404.html">创意</a></li>
-				    <li class="grid"><a  href="#">品牌</a>
-					   <div class="megapanel">
-						<div class="row">
-							<div class="col1">
-								<div class="h_nav">
-									<ul>
-										<li><a href="store.html">饰品</a></li>
-										<li><a href="store.html">包</a></li>
-										<li><a href="store.html">帽子</a></li>
-										<li><a href="store.html">连帽衫与卫衣</a></li>
-										<li><a href="store.html">夹克与外套</a></li>
-										<li><a href="store.html">牛仔裤</a></li>
-										<li><a href="store.html">珠宝</a></li>
-										<li><a href="store.html">毛衣与开衫</a></li>
-										<li><a href="store.html">皮夹克</a></li>
-										<li><a href="store.html">长袖T恤</a></li>
-										<li><a href="store.html">家居服</a></li>
-									</ul>	
-								</div>							
+					<li class="active grid">
+						<a  href="">品牌</a>
+						<div class="megapanel">
+							<div class="row">
+								<div class="col1">
+									<div class="h_nav">
+										<ul id="showBrandAtnav">
+										</ul>	
+									</div>							
+								</div>
 							</div>
-							<div class="col1">
-								<div class="h_nav">
-									<ul>
-										<li><a href="store.html">衬衫</a></li>
-										<li><a href="store.html">鞋及靴子</a></li>
-										<li><a href="store.html">短裤</a></li>
-										<li><a href="store.html">西装与西装外套</a></li>
-										<li><a href="store.html">太阳镜</a></li>
-										<li><a href="store.html">运动裤</a></li>
-										<li><a href="store.html">泳装</a></li>
-										<li><a href="store.html">裤子与卡其裤</a></li>
-										<li><a href="store.html">T恤</a></li>
-										<li><a href="store.html">内衣与袜子</a></li>
-										<li><a href="store.html">背心</a></li>
-									</ul>	
-								</div>							
-							</div>
-							<div class="col1">
-								<div class="h_nav">
-									<h4>知名品牌</h4>
-									<ul>
-                                        <!-- 品牌名，勿动 -->
-										<li><a href="store.html">Levis</a></li>
-										<li><a href="store.html">Persol</a></li>
-										<li><a href="store.html">Nike</a></li>
-										<li><a href="store.html">Edwin</a></li>
-										<li><a href="store.html">New Balance</a></li>
-										<li><a href="store.html">Jack & Jones</a></li>
-										<li><a href="store.html">Paul Smith</a></li>
-										<li><a href="store.html">Ray-Ban</a></li>
-										<li><a href="store.html">Wood Wood</a></li>
-                                        <!-- /品牌名，勿动 -->
-									</ul>	
-								</div>												
-							</div>
-						  </div>
 						</div>
-			    </li>
-								
-				<li><a class="pink" href="gifts.html">礼物</a></li>
-			 <li class="grid"><a  href="#">店铺</a>
-					   <div class="megapanel">
-						<div class="row">
-							<div class="col1">
-								<div class="h_nav">
-									<ul>
-										<li><a href="store.html">饰品</a></li>
-										<li><a href="store.html">包</a></li>
-										<li><a href="store.html">帽子</a></li>
-										<li><a href="store.html">连帽衫与卫衣</a></li>
-										<li><a href="store.html">夹克与外套</a></li>
-										<li><a href="store.html">牛仔裤</a></li>
-										<li><a href="store.html">珠宝</a></li>
-										<li><a href="store.html">毛衣与开衫</a></li>
-										<li><a href="store.html">皮夹克</a></li>
-										<li><a href="store.html">长袖T恤</a></li>
-										<li><a href="store.html">家居服</a></li>
-									</ul>	
-								</div>							
-							</div>
-							<div class="col1">
-								<div class="h_nav">
-									<ul>
-										<li><a href="store.html">衬衫</a></li>
-										<li><a href="store.html">鞋及靴子</a></li>
-										<li><a href="store.html">短裤</a></li>
-										<li><a href="store.html">西装与西装外套</a></li>
-										<li><a href="store.html">太阳镜</a></li>
-										<li><a href="store.html">运动裤</a></li>
-										<li><a href="store.html">泳装</a></li>
-										<li><a href="store.html">裤子与卡其裤</a></li>
-										<li><a href="store.html">T恤</a></li>
-										<li><a href="store.html">内衣与袜子</a></li>
-										<li><a href="store.html">背心</a></li>
-									</ul>	
-								</div>							
-							</div>
-							<div class="col1">
-								<div class="h_nav">
-									<h4>知名品牌</h4>
-									<ul>
-                                        <!-- 品牌名，勿动 -->
-										<li><a href="store.html">Levis</a></li>
-										<li><a href="store.html">Persol</a></li>
-										<li><a href="store.html">Nike</a></li>
-										<li><a href="store.html">Edwin</a></li>
-										<li><a href="store.html">New Balance</a></li>
-										<li><a href="store.html">Jack & Jones</a></li>
-										<li><a href="store.html">Paul Smith</a></li>
-										<li><a href="store.html">Ray-Ban</a></li>
-										<li><a href="store.html">Wood Wood</a></li>
-                                        <!-- /品牌名，勿动 -->
-									</ul>	
-								</div>												
-							</div>
-						  </div>
-						</div>
-			    </li>
-				
-			  </ul> 
-				</div>
-					<div class="cart icon1 sub-icon1">
-						<h6 >购物车:
-						<span class="item">3 项</span>
-						<span class="rate">70$</span>
+					</li>
+				</ul> 
+			</div>
+
+		<div class="cart icon1 sub-icon1">
+			<h6 >购物车:
+				<span class="item">3 项</span>
+				<span class="rate">70$</span>
 						<li><a href="#" class="round"> </a>
 						<ul class="sub-icon1 list">
 						  <h3>最近新增的物品(3)</h3>
@@ -347,7 +202,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 			</div>
 				<div class="content-bottom">
-					<h3>Featured products</h3>
+					<h3 id="isProductHere">Featured products</h3>
 					<div class="bottom-grid">
 						<div class="col-md-4 shirt">
 							<div class="bottom-grid-top">

@@ -118,7 +118,7 @@
 				var leftArrow = listParent.find($(".nbs-flexisel-nav-left"));
 				var rightArrow = listParent.find($(".nbs-flexisel-nav-right"));
 				
-				$(window).on("resize", function(event){
+				jQuery(window).on("resize", function(event){
 					
 					methods.setResponsiveEvents();
 					

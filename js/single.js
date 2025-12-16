@@ -5,6 +5,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const productName = urlParams.get('productName'); 
     const brand = urlParams.get('brand');
+    if (!productName || !brand) {
+    //  location.href="404.html?text=找不到产品"+productName;
+    // return;
+  }
     set_showProductColor(productName);
     set_showProductName(productName,brand);
     set_flexiselDemo1();
@@ -106,23 +110,136 @@ function set_flexiselDemo1() {
         });
 }
 
+/**
+ * 
+ * @param {*} brandName 
+ * @param {*} productName 
+ * @returns null
+
 
 async function set_showImg(brandName, productName){
-  productList = getProductInfo(brandName, productName);
+  productList = await getProductInfo(brandName, productName);
+  console.log("productList:"+productList);
   if (productList == null) {
     const Aimg = document.getElementById("showImg");
     Aimg.title="数据加载失败";
     console.log("数据加载失败");
     return;
   }
-  img =document.querySelectorAll("#showImg img");
-  for (let i = 0; i < img.length; i++) {
-    img[i].src = productList.path;
-    img[i].title = productList.product;
-  }
+  document.getElementById("showThumbImg").src = productList.path;
+  document.getElementById("showThumbImg").title = "";
+  document.getElementById("showSourceImg").src = productList.path;
+  document.getElementById("showSourceImg").title = "";
+  document.getElementById("showSourceImg").alt ="图片加载失败";
+  console.log("数据加载成功");
+  console.log("缩略图")
+  console.log("src:"+document.getElementById("showThumbImg").src);
+  console.log("高清图")
+  console.log("src:"+document.getElementById("showSourceImg").src);
+  
   
 }
 
+
+// getProductInfo 函数保持不变
+async function getProductInfo(brand, productName) {
+  let response;
+  try {
+    response = await fetch('products.json'); 
+    if (!response.ok) throw new Error("Network response was not ok");
+    const products = await response.json();
+
+    return products.find(product => product.brand === brand && product.product === productName);
+  } catch (error) {
+    console.error('Failed to fetch or process products data:', error);
+    return null;
+  }
+}
+
+ */
+
+/**
+ * 加载产品图片并初始化 Etalage 悬停放大功能
+ * @param {*} brandName
+ * @param {*} productName
+ * @returns {Promise<void>}
+ */
+async function set_showImg(brandName, productName) {
+  try {
+    const productList = await getProductInfo(brandName, productName);
+    
+    if (!productList || !productList.path || typeof productList.path !== 'string') {
+      console.warn('⚠️ set_showImg: 无效 productInfo 或缺失 path 字段');
+      const thumb = document.getElementById('showThumbImg');
+      const source = document.getElementById('showSourceImg');
+      const link = document.getElementById('showImg');
+      if (thumb) thumb.src = '';
+      if (source) source.src = '';
+      if (link) link.title = '图片数据不可用';
+      return;
+    }
+
+    const imgPath = productList.path.trim();
+
+    // ✅ STEP 1: 彻底重置 #etalage DOM（核心！）
+    const etalageEl = document.getElementById('etalage');
+    if (!etalageEl) {
+      console.error('❌ #etalage 元素不存在');
+      return;
+    }
+    etalageEl.innerHTML = `
+      <li>
+        <a href="#" id="showImg" title="${brandName} ${productName}">
+          <img class="etalage_thumb_image img-responsive" id="showThumbImg" src="" alt="">
+          <img class="etalage_source_image img-responsive" id="showSourceImg" src="" alt="">
+        </a>
+      </li>
+    `;
+
+    // ✅ STEP 2: 设置图片 src
+    const thumbImg = document.getElementById('showThumbImg');
+    const sourceImg = document.getElementById('showSourceImg');
+    const linkEl = document.getElementById('showImg');
+
+    thumbImg.src = imgPath;
+    sourceImg.src = imgPath;
+
+    // ✅ STEP 3: 等待加载
+    await Promise.all([
+      new Promise(r => thumbImg.complete ? r() : thumbImg.onload = r),
+      new Promise(r => sourceImg.complete ? r() : sourceImg.onload = r)
+    ]);
+
+    // ✅ STEP 4: 初始化 Etalage（带最强关闭策略）
+    if (typeof $ !== 'undefined' && $.fn.etalage) {
+      const $etalage = $('#etalage');
+      if ($etalage.data('etalage')) $etalage.etalage('destroy');
+
+      $etalage.etalage({
+        zoom_area_width: 400,
+        zoom_area_height: 400,
+        zoom_area_distance: 10,
+        small_thumbs: 0,
+        smallthumb_hide_single: true,
+        show_begin_end_smallthumb: false,
+        smallthumb_select_on_hover: false,
+        smallthumb_inactive_opacity: 0,
+        show_icon: false,
+        show_hint: false,
+        show_descriptions: false
+      });
+
+      // ✅ STEP 5: 防御性清理（万无一失）
+      $etalage.find('.etalage_small_thumbs, .etalage_icon, .etalage_hint').remove();
+      console.log('✅ Etalage 初始化完成，小缩略图已彻底禁用');
+    }
+
+  } catch (err) {
+    console.error('❌ set_showImg 异常:', err);
+    const link = document.getElementById('showImg');
+    if (link) link.title = '加载失败，请刷新重试';
+  }
+}
 async function getProductInfo(brand, productName) {
   let response;
   try {

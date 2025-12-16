@@ -3,6 +3,7 @@
     "brand": "HUAWEI",
     "product": "HUAWEI Mate 70 Air",
     "path": "img/HUAWEI/HUAWEI Mate 70 Air.jpg",
+    "thumbPath": [],
     "price": 4000,
     "description": "手机",
     "color": [
@@ -32,6 +33,7 @@
     "brand": "HUAWEI",
     "product": "HUAWEI Mate 70 Pro 优享版 ",
     "path": "img/HUAWEI/HUAWEI Mate 70 Pro 优享版 .jpg",
+    "thumbPath": [],
     "price": 4000,
     "description": "手机",
     "color": [
@@ -61,6 +63,7 @@
     "brand": "HUAWEI",
     "product": "HUAWEI Mate 70 Pro+",
     "path": "img/HUAWEI/HUAWEI Mate 70 Pro+.jpg",
+    "thumbPath": [],
     "price": 4000,
     "description": "手机",
     "color": [
@@ -90,6 +93,7 @@
     "brand": "HUAWEI",
     "product": "HUAWEI Mate 70 Pro",
     "path": "img/HUAWEI/HUAWEI Mate 70 Pro.jpg",
+    "thumbPath": [],
     "price": 4000,
     "description": "手机",
     "color": [
@@ -119,6 +123,7 @@
     "brand": "HUAWEI",
     "product": "HUAWEI Mate 70",
     "path": "img/HUAWEI/HUAWEI Mate 70.jpg",
+    "thumbPath": [],
     "price": 4000,
     "description": "手机",
     "color": [
@@ -148,6 +153,7 @@
     "brand": "HUAWEI",
     "product": "HUAWEI Mate 80 Pro Max",
     "path": "img/HUAWEI/HUAWEI Mate 80 Pro Max.jpg",
+    "thumbPath": [],
     "price": 4000,
     "description": "手机",
     "color": [
@@ -177,6 +183,7 @@
     "brand": "HUAWEI",
     "product": "HUAWEI Mate 80 Pro",
     "path": "img/HUAWEI/HUAWEI Mate 80 Pro.jpg",
+    "thumbPath": [],
     "price": 4000,
     "description": "手机",
     "color": [
@@ -206,6 +213,7 @@
     "brand": "HUAWEI",
     "product": "HUAWEI Mate 80 RS 非凡大师 ",
     "path": "img/HUAWEI/HUAWEI Mate 80 RS 非凡大师 .jpg",
+    "thumbPath": [],
     "price": 4000,
     "description": "手机",
     "color": [
@@ -235,6 +243,7 @@
     "brand": "HUAWEI",
     "product": "HUAWEI Mate 80",
     "path": "img/HUAWEI/HUAWEI Mate 80.jpg",
+    "thumbPath": [],
     "price": 4000,
     "description": "手机",
     "color": [
@@ -264,6 +273,7 @@
     "brand": "HUAWEI",
     "product": "HUAWEI Mate X5",
     "path": "img/HUAWEI/HUAWEI Mate X5.jpg",
+    "thumbPath": [],
     "price": 4000,
     "description": "手机",
     "color": [
@@ -293,6 +303,7 @@
     "brand": "HUAWEI",
     "product": "HUAWEI Mate X6",
     "path": "img/HUAWEI/HUAWEI Mate X6.jpg",
+    "thumbPath": [],
     "price": 4000,
     "description": "手机",
     "color": [
@@ -322,6 +333,7 @@
     "brand": "HUAWEI",
     "product": "HUAWEI Mate X7 典藏版 ",
     "path": "img/HUAWEI/HUAWEI Mate X7 典藏版 .jpg",
+    "thumbPath": [],
     "price": 4000,
     "description": "手机",
     "color": [
@@ -351,6 +363,7 @@
     "brand": "HUAWEI",
     "product": "HUAWEI Mate XT 非凡大师",
     "path": "img/HUAWEI/HUAWEI Mate XT 非凡大师.jpg",
+    "thumbPath": [],
     "price": 4000,
     "description": "手机",
     "color": [
@@ -380,6 +393,7 @@
     "brand": "HUAWEI",
     "product": "HUAWEI Mate XTs 非凡大师",
     "path": "img/HUAWEI/HUAWEI Mate XTs 非凡大师.jpg",
+    "thumbPath": [],
     "price": 4000,
     "description": "手机",
     "color": [
@@ -409,6 +423,7 @@
     "brand": "HUAWEI",
     "product": "HUAWEI nova 14 Ultra",
     "path": "img/HUAWEI/HUAWEI nova 14 Ultra.jpg",
+    "thumbPath": [],
     "price": 4000,
     "description": "手机",
     "color": [
@@ -438,6 +453,7 @@
     "brand": "HUAWEI",
     "product": "HUAWEI nova 14 活力版",
     "path": "img/HUAWEI/HUAWEI nova 14 活力版.jpg",
+    "thumbPath": [],
     "price": 4000,
     "description": "手机",
     "color": [
@@ -467,6 +483,7 @@
     "brand": "HUAWEI",
     "product": "HUAWEI nova Flip S",
     "path": "img/HUAWEI/HUAWEI nova Flip S.jpg",
+    "thumbPath": [],
     "price": 4000,
     "description": "手机",
     "color": [
@@ -496,6 +513,7 @@
     "brand": "HUAWEI",
     "product": "HUAWEI Pocket 2 优享版",
     "path": "img/HUAWEI/HUAWEI Pocket 2 优享版.jpg",
+    "thumbPath": [],
     "price": 4000,
     "description": "手机",
     "color": [
@@ -525,6 +543,7 @@
     "brand": "HUAWEI",
     "product": "HUAWEI Pura 70 Pro",
     "path": "img/HUAWEI/HUAWEI Pura 70 Pro.jpg",
+    "thumbPath": [],
     "price": 4000,
     "description": "手机",
     "color": [
@@ -554,6 +573,7 @@
     "brand": "HUAWEI",
     "product": "HUAWEI Pura 70 Ultra",
     "path": "img/HUAWEI/HUAWEI Pura 70 Ultra.jpg",
+    "thumbPath": [],
     "price": 4000,
     "description": "手机",
     "color": [
@@ -583,6 +603,7 @@
     "brand": "HUAWEI",
     "product": "HUAWEI Pura 70",
     "path": "img/HUAWEI/HUAWEI Pura 70.jpg",
+    "thumbPath": [],
     "price": 4000,
     "description": "手机",
     "color": [
@@ -612,6 +633,7 @@
     "brand": "HUAWEI",
     "product": "HUAWEI Pura 70北斗卫星消息版",
     "path": "img/HUAWEI/HUAWEI Pura 70北斗卫星消息版.jpg",
+    "thumbPath": [],
     "price": 4000,
     "description": "手机",
     "color": [
@@ -641,6 +663,7 @@
     "brand": "HUAWEI",
     "product": "HUAWEI Pura 80 Pro+",
     "path": "img/HUAWEI/HUAWEI Pura 80 Pro+.jpg",
+    "thumbPath": [],
     "price": 4000,
     "description": "手机",
     "color": [
@@ -670,6 +693,7 @@
     "brand": "HUAWEI",
     "product": "HUAWEI Pura 80 Pro",
     "path": "img/HUAWEI/HUAWEI Pura 80 Pro.jpg",
+    "thumbPath": [],
     "price": 4000,
     "description": "手机",
     "color": [
@@ -699,6 +723,7 @@
     "brand": "HUAWEI",
     "product": "HUAWEI Pura 80 Ultra",
     "path": "img/HUAWEI/HUAWEI Pura 80 Ultra.jpg",
+    "thumbPath": [],
     "price": 4000,
     "description": "手机",
     "color": [
@@ -728,6 +753,7 @@
     "brand": "HUAWEI",
     "product": "HUAWEI Pura 80",
     "path": "img/HUAWEI/HUAWEI Pura 80.jpg",
+    "thumbPath": [],
     "price": 4000,
     "description": "手机",
     "color": [
@@ -757,6 +783,7 @@
     "brand": "HUAWEI",
     "product": "HUAWEI Pura X",
     "path": "img/HUAWEI/HUAWEI Pura X.jpg",
+    "thumbPath": [],
     "price": 4000,
     "description": "手机",
     "color": [
@@ -786,6 +813,7 @@
     "brand": "iQOO",
     "product": "iQOO Z10",
     "path": "img/iQOO/iQOO Z10.jpg",
+    "thumbPath": [],
     "price": 4000,
     "description": "手机",
     "color": [
@@ -815,6 +843,7 @@
     "brand": "nubia",
     "product": "nubia Flip 2",
     "path": "img/nubia/nubia Flip 2.jpg",
+    "thumbPath": [],
     "price": 4000,
     "description": "手机",
     "color": [
@@ -844,6 +873,7 @@
     "brand": "nubia",
     "product": "nubia Flip",
     "path": "img/nubia/nubia Flip.jpg",
+    "thumbPath": [],
     "price": 4000,
     "description": "手机",
     "color": [
@@ -873,6 +903,7 @@
     "brand": "nubia",
     "product": "nubia Z70S Ultra 摄影师版",
     "path": "img/nubia/nubia Z70S Ultra 摄影师版.jpg",
+    "thumbPath": [],
     "price": 4000,
     "description": "手机",
     "color": [
@@ -902,6 +933,7 @@
     "brand": "OPPO",
     "product": "OPPO Find X9 追光红",
     "path": "img/OPPO/OPPO Find X9 追光红.jpg",
+    "thumbPath": [],
     "price": 4000,
     "description": "手机",
     "color": [
@@ -931,6 +963,7 @@
     "brand": "OPPO",
     "product": "OPPO K13s 超能白",
     "path": "img/OPPO/OPPO K13s 超能白.jpg",
+    "thumbPath": [],
     "price": 4000,
     "description": "手机",
     "color": [
@@ -960,6 +993,7 @@
     "brand": "OPPO",
     "product": "OPPO Reno15 星光蝴蝶结",
     "path": "img/OPPO/OPPO Reno15 星光蝴蝶结.jpg",
+    "thumbPath": [],
     "price": 4000,
     "description": "手机",
     "color": [
@@ -989,6 +1023,7 @@
     "brand": "vivo",
     "product": "vivo S30",
     "path": "img/vivo/vivo S30.jpg",
+    "thumbPath": [],
     "price": 4000,
     "description": "手机",
     "color": [
@@ -1018,6 +1053,7 @@
     "brand": "vivo",
     "product": "vivo Y500",
     "path": "img/vivo/vivo Y500.jpg",
+    "thumbPath": [],
     "price": 4000,
     "description": "手机",
     "color": [
@@ -1047,6 +1083,7 @@
     "brand": "Xiaomi",
     "product": "Xiaomi 15S Pro",
     "path": "img/Xiaomi/Xiaomi 15S Pro.jpg",
+    "thumbPath": [],
     "price": 4000,
     "description": "手机",
     "color": [
@@ -1076,6 +1113,7 @@
     "brand": "Xiaomi",
     "product": "Xiaomi 17 Pro Max",
     "path": "img/Xiaomi/Xiaomi 17 Pro Max.jpg",
+    "thumbPath": [],
     "price": 4000,
     "description": "手机",
     "color": [
@@ -1105,6 +1143,7 @@
     "brand": "Xiaomi",
     "product": "Xiaomi Civi 2",
     "path": "img/Xiaomi/Xiaomi Civi 2.jpg",
+    "thumbPath": [],
     "price": 4000,
     "description": "手机",
     "color": [

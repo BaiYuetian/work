@@ -56,18 +56,35 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href="css/megamenu.css" rel="stylesheet" type="text/css" media="all" />
 <script type="text/javascript" src="js/megamenu.js"></script>
 <script>$(document).ready(function(){$(".megamenu").megamenu();});</script>		
+<!-- MY --> 
+ <script src="js/public.js">	</script>
+<script >
+	document.addEventListener("DOMContentLoaded", function() { 
+		
+	const urlParams = new URLSearchParams(window.location.search);
+			
+    const text = urlParams.get('text');
+	if (text!= null)document.getElementById("showInfo").textContent = text;
+
+	});
+</script>
+
+
+
 </head>
 <body> 
 <!--header-->
 	<div class="container">
 		<div class="header" id="home">	
 			<div class="header-para">
-				<p>The quick brown <span>fox jumps over a lazy dog. DJs flock by when MTV ax quiz prog.</span></p>	
+				<p>
+					<span id="showTime"></span>
+				</p>	
 			</div>	
 			<ul class="header-in">
 				<li><a href="account.html">MY ACCOUNT</a> </li>
-				<li><a href="wishlist.html">  WISHLIST</a></li>
-				<li ><a href="contact.html" > CONTACT US</a></li>
+				<li><a href="wishlist.html">WISHLIST</a></li>
+				<li ><a href="contact.html" >CONTACT US</a></li>
 			</ul>
 				<div class="clearfix"> </div>
 		</div>
@@ -322,12 +339,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="clearfix"> </div>
 		</div>
 		<div class="page">
-			<h6><a href="#">Page Title</a><b>|</b>Page description The quick, brown <span class="for">fox jumps over a lazy dog. DJs flock by when TV ax quiz prog.</span></h6>
 		</div>
 		<div class="content">
 			<div class="four">
 				<h3>404</h3>
-				<p>您寻找的页面找不到。</p>
+				<p id = "showInfo">您寻找的页面找不到。</p>
 					<a href="index.html" class="more ">返回首页</a>
 				
 			</div>

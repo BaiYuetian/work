@@ -58,51 +58,42 @@ document.addEventListener("DOMContentLoaded", function () {
   updateLocalTimeCN();         
   setInterval(updateLocalTimeCN, 1000);  
 });
-async function getUserInfo(key) {
-  try {
-    // 1️⃣ 加载 userDB.json
-    const res = await fetch('userDB.json');
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    const users = await res.json();
-    if (!Array.isArray(users)) {
-      throw new Error('userDB.json must be an array');
-    }
 
-    // 2️⃣ 获取 localUserName（带容错）
-    let localUserName = '';
-    try {
-      const stored = localStorage.getItem('localUserName');
-      localUserName = typeof stored === 'string' ? stored.trim() : '';
-    } catch (e) {
-      console.warn('Failed to read localStorage.localUserName:', e);
-    }
+function setBestsellers(){
+  /**
+   * </div>
+						<div class="news">
+							<a href="single.html?"><img class="img-responsive" src="images/si.jpg" title="name" alt=""></a>
+						</div>
+						<div class="news-in">
+							<h6><a href="single.html">Product name here</a></h6>
+							<p>Description Lorem ipsum </p>
+							<ul>
+								<li>Price: <span>$110</span> </li><b>|</b>
+								<li>Country: <span>US</span></li>
+							</ul>
+						</div>
+						<div class="clearfix">
 
-    // 3️⃣ 判断 key 是否“非空”（按你的定义：非 null/undefined/空串/纯空白）
-    const isKeyNonEmpty =
-      key != null &&
-      typeof key === 'string' &&
-      key.trim() !== '';
+						</div>
+					</div>
+   */
+  const bestsellersDiv = document.getElementById('bestsellers');
+  if (!bestsellersDiv) return;
+  bestsellersDiv.innerHTML = '';
+  bestsellersDiv.innerHTML += `
+    <div class="news">
+      <a href="single.html?"><img class="img-responsive" src="images/si.jpg" title="name" alt=""></a>
+      <div class="news-in">
+        <h6><a href="single.html">Product name here</a></h6>
+        <p>Description Lorem ipsum </p>
+        <ul>
+          <li>Price: <span>10</span> </li><b>|</b>
+          <li>Country: <span>US</span></li>
+        </ul>
+      </div>
+      <div class="clearfix">
+      </div>
+    </div>
 
-    if (isKeyNonEmpty) {
-      // 🔑 key 非空 → 用 localUserName 查用户，再取 key 字段值
-      if (!localUserName) return ''; // ✅ localUserName 为空 → 返回空字符串
-
-      const user = users.find(u => u && typeof u === 'object' && u.userName === localUserName);
-      if (!user) return null; // ✅ 找不到用户 → null
-
-      // ✅ 安全取字段：支持嵌套？当前需求是扁平字段，直接访问
-      // 若 key 是 "address.0.city" 可扩展，但当前按简单字段处理
-      return user[key] !== undefined ? user[key] : null;
-    } else {
-      // 📌 key 为空 → 用 localUserName 查整个用户对象
-      if (!localUserName) return null; // ✅ localUserName 无效 → null
-
-      const user = users.find(u => u && typeof u === 'object' && u.userName === localUserName);
-      return user || null; // ✅ 找不到 → null
-    }
-
-  } catch (err) {
-    console.error('getUserInfo error:', err);
-    throw err;
-  }
 }

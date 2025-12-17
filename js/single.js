@@ -1,57 +1,267 @@
-document.addEventListener("DOMContentLoaded", function () { 
+document.addEventListener("DOMContentLoaded", async function () { 
 
-    
-    const urlParams = new URLSearchParams(window.location.search);
-
-    const productName = urlParams.get('productName'); 
-    const brand = urlParams.get('brand');
-    if (!productName || !brand) {
-    //  location.href="404.html?text=找不到产品"+productName;
-    // return;
+ try{
+  const urlParams = new URLSearchParams(window.location.search);
+  let productName = urlParams.get('productName') ||
+                    urlParams.get('Productname') ||
+                    urlParams.get('ProductName') ||null;  
+  let brand = urlParams.get('brand') ||
+              urlParams.get('Brand') ||null;
+  let isHave = await getProductInfo(brand, productName);
+  if (!isHave) {
+      window.location.href = `404.html?text=找不到产品:${encodeURIComponent(productName)}`;
+      return;
   }
-    set_showProductColor(productName);
-    set_showProductName(productName,brand);
-    set_flexiselDemo1();
-    set_showImg(brand, productName);
-    
+  brandName = brand;
+  productName = productName;
+  try{ 
+  await setProduct(brand, productName);
+  } catch(err){
+    console.error('页面初始化失败 L18:', err.message);
+    return;
+  }
+ try{ 
+    set_flexiselDemo1(); // 轮播图
+ } catch(err){
+    console.error('轮播图初始化失败:', err.message);
+  }
+  try{
+    initLister(brandName, productName); // 监听
+  }catch(err){ 
+    console.error('事件监听初始化失败:', err.message);
+  }
+  try{
 
+  await set_showImg(brand, productName);
+  }catch(err){  
+    console.error('主图初始化失败:', err.message);
+  }
+
+
+}  catch(err){
+    console.error('页面初始化失败:', err.message);
+  }
 });
 
-function set_showProductName(productName,brand) {
-  const e = document.querySelector('#showProductName');
-  e.innerText = brand +" "+ productName;
+async function setProduct(brandName, productName) {
+  // 设置产品相关信息
+
+  // 名称
+   const productNameInfo = document.querySelector('#productNameInfo');
+   productNameInfo.innerText = brandName +" "+ productName;
+  //说明
+  document.querySelector("#descriptionInfo").innerText = await getProductInfoForKey(brandName, productName,'description');
+// 规格
+try{ 
+  await setColor(brandName, productName);   //颜色
+  await setSize(brandName, productName); //容量
+  setPriceAndInventory(brandName, productName); // 初始设置价格和库存
+} catch(err){
+  console.error('页面初始化失败:', err.message);
+  return;
 }
 
-async function set_showProductColor(productName) {
+} 
+async function setColor(brandName, productName){
+    //颜色
+  try{
+    colorList = await getProductInfoForKey(brandName, productName,'color');
+    inventoryList = await getProductInfoForKey(brandName, productName,'inventoryList');
+    colorSelect = document.querySelector('#colorSelect');
+    colorSelect.innerHTML = '';
+    for (const color of colorList) {
+      colorSelect.innerHTML += `<option value="${color}">${color}</option>`;
+      }
+
+  }catch(err){
+    console.error('设置颜色失败:', err.message);
+  }
+  
+}
+async function setSize(brandName, productName){
+  //容量
+  try{
+    const colorKey = colorSelect.value;
+    inventoryList = await getProductInfoForKey(brandName, productName,'inventoryList');
+    if (inventoryList && typeof inventoryList === 'object' && inventoryList[colorKey] != null) {
+      sizeList = Object.keys(inventoryList[colorKey]);
+      console.log('sizeList:', sizeList);
+    } else {
+      sizeList =[];
+    }
+      sizeSelect = document.querySelector('#sizeSelect');
+      sizeSelect.innerHTML = '';
+      for (const size of sizeList) {
+        sizeSelect.innerHTML += `<option value="${size}">${size}</option>`;
+      }
+  }catch(err){
+    console.error('设置容量失败:', err.message);
+  }
+  
+}
+function setPriceAndInventory(brandName, productName){
+  //价格和库存
+    const colorKey = colorSelect.value;
+    const sizeKey = sizeSelect.value;
+    const priceInfo = document.querySelector('#priceInfo');
+    const inventoryInfo = document.querySelector('#inventoryInfo');
+    if (inventoryList && typeof inventoryList === 'object' && inventoryList[colorKey] && inventoryList[colorKey][sizeKey]) {
+      const inventory = inventoryList[colorKey][sizeKey];
+      priceInfo.innerText = `￥ ${inventory.price}`;
+      inventoryInfo.innerText = `库存： ${inventory.inventory}`;
+      if (inventory.inventory <= 0) {
+        document.querySelector('#addToCart').innerText = '缺货，添加到愿望单';
+        document.querySelector("#inventoryInfo").style.color = 'red';
+      } else {
+        document.querySelector('#addToCart').innerText = '添加到购物车';
+        document.querySelector("#inventoryInfo").style.color = 'black';
+
+      }
+    } else {
+      priceInfo.innerText = '￥:??';
+    }
+    console.log('价格和库存信息已设置');
+}
+async function colorSelect_Change(brandName, productName){
+  /**
+   * 颜色选择变化
+   * 设置容量下拉框(no connuct)
+
+   */
+  await setSize(brandName, productName);
+  setPriceAndInventory();
+ 
+}
+function sizeSelect_Change(brandName, productName) {
+  /***
+   * 容量选择变化
+   * 设置价格和库存信息
+ */
+  setPriceAndInventory();
+  console.log('容量选择已更改');
+
+}
+function addToCart_Click(brandName, productName) {
+  // ✅ 1. 安全获取当前选中值
+  const colorSelect = document.querySelector('#colorSelect');
+  const sizeSelect = document.querySelector('#sizeSelect');
+  if (!colorSelect || !sizeSelect) {
+    console.warn('❌ 购物车添加失败：缺少颜色或容量下拉框');
+    return;
+  }
+
+  const color = colorSelect.value?.trim();
+  const size = sizeSelect.value?.trim();
+  if (!color || !size) {
+    alert('⚠️ 请先选择颜色和容量！');
+    return;
+  }
+
+  // ✅ 2. 构建商品唯一标识（用于查重）
+  const key = `${brandName}|${productName}|${color}|${size}`;
+  const cartItem = {
+    key, // ⚠️ 关键！用于去重
+    productName,
+    brandName,
+    color,
+    size,
+    quantity: 1
+  };
+
+  // ✅ 3. 读取现有购物车（安全解析）
+  let cart = [];
   try {
-    const res = await fetch('products.json');
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    const products = await res.json();
-
-    const product = products.find(p => p.product === productName);
-    if (!product || !Array.isArray(product.color) || product.color.length === 0) {
-      console.warn(` 未找到产品 "${productName}" 或其 color 数据为空`);
-      return;
+    const saved = localStorage.getItem('cartProduct');
+    if (saved) {
+      const parsed = JSON.parse(saved);
+      if (Array.isArray(parsed)) cart = parsed;
     }
+  } catch (e) {
+    console.error('⚠️ 本地购物车数据损坏，已重置:', e);
+    localStorage.removeItem('cartProduct');
+  }
 
-    const select = document.querySelector('#showProductColor select');
-    if (!select) {
-      console.warn(' 未找到 #showProductColo select 元素');
-      return;
-    }
-    select.innerHTML = product.color.map(color => 
-      `<option value="${color}">${color}</option>`
-    ).join('');
+  // ✅ 4. 查找是否已存在（用 key 匹配）
+  const existingIndex = cart.findIndex(item => item.key === key);
+  if (existingIndex >= 0) {
+    // ✅ 已存在 → 数量 +1
+    cart[existingIndex].quantity += 1;
+    console.log(`✅ 已存在商品，数量更新为: ${cart[existingIndex].quantity}`);
+  } else {
+    // ✅ 首次添加
+    cart.push(cartItem);
+    console.log('✅ 新商品已加入购物车');
+  }
 
-    // 默认选中第一个
-    if (select.options.length > 0) select.selectedIndex = 0;
-
-  } catch (err) {
-    console.error('❌ 加载颜色失败:', err.message);
+  // ✅ 5. 保存回 localStorage
+  try {
+    localStorage.setItem('cartProduct', JSON.stringify(cart));
+    console.log('🛒 购物车已更新:', cart);
+    // ✅ 可选：刷新购物车徽章（如顶部小红点）
+   // updateCartBadge(cart.length);
+  } catch (e) {
+    console.error('❌ 保存购物车失败:', e);
+    alert('购物车保存失败，请稍后重试');
   }
 }
+function addToWishlist_Click(productName,brandName,color,size){
+  /***
+   * 添加到愿望单按钮点击
+   */
+}
+function initLister(brandName, productName){
+  try{ 
+      document.getElementById('colorSelect').addEventListener('change', function() {
+      colorSelect_Change(brandName, productName);
+    });
+    console.log('colorSelect元素更改事件监听初始化完毕');
+  } catch(err){
+    console.error('colorSelect元素更改事件监听初始化失败:', err.message);
+  }
+  try{
+      document.getElementById('sizeSelect').addEventListener('change', function() {
+      sizeSelect_Change(brandName, productName);
+    });
+    console.log('sizeSelect元素更改事件监听初始化完毕');
+  } catch(err){
+    console.error('sizeSelect元素更改事件监听初始化失败:', err.message);
+  }
+  try{
+    document.getElementById('addToCart').addEventListener('click', function() {
+    /***
+     * 添加到购物车按钮点击
+     */ 
+    color = document.querySelector('#colorSelect').value;
+    size = document.querySelector('#sizeSelect').value;
+    if (document.querySelector('#addToCart').innerText === '添加到购物车') {
+      /**
+       * 添加到购物车
+       */
+      addToCart_Click(brandName,productName);
+      return;
+    } else if (document.querySelector('#addToCart').innerText === '缺货，添加到愿望单') {
+      /**
+       * 添加到愿望单
+       */
+      addToWishlist_Click(productName,brandName,color,size);
+      return;
+    }else {
+      alert("遇到未知错误，添加失败");
+      return;
+    }
+  });
+  }catch(err){ 
+    console.error('按钮点击事件监听初始化失败:', err.message);
+  }
+  
 
 
+}
+
+/**
+ * 轮播图
+ * @returns null
+ */
 function set_flexiselDemo1() {
     const carousel = document.getElementById("flexiselDemo1");
     if (!carousel) return;
@@ -62,17 +272,14 @@ function set_flexiselDemo1() {
             return res.json();
         })
         .then(products => {
-            // 过滤出有效产品（含 brand、product、path）
             const validProducts = products.filter(p =>
                 p && typeof p === "object" &&
                 p.brand && p.product && p.path
             );
 
-            // 随机打乱并取前 10 个不重复项（Fisher-Yates 洗牌）
             const shuffled = [...validProducts].sort(() => Math.random() - 0.5);
             const selected = shuffled.slice(0, 10);
 
-            // 清空并生成 10 个 <li>
             carousel.innerHTML = "";
             selected.forEach(product => {
                 const li = document.createElement("li");
@@ -86,7 +293,6 @@ function set_flexiselDemo1() {
                 carousel.appendChild(li);
             });
 
-            // 初始化 flexisel（确保 jQuery 和插件已就绪）
             if (typeof $ !== "undefined" && typeof $.fn.flexisel !== "undefined") {
                 setTimeout(() => {
                     $("#flexiselDemo1").flexisel({
@@ -111,55 +317,7 @@ function set_flexiselDemo1() {
 }
 
 /**
- * 
- * @param {*} brandName 
- * @param {*} productName 
- * @returns null
-
-
-async function set_showImg(brandName, productName){
-  productList = await getProductInfo(brandName, productName);
-  console.log("productList:"+productList);
-  if (productList == null) {
-    const Aimg = document.getElementById("showImg");
-    Aimg.title="数据加载失败";
-    console.log("数据加载失败");
-    return;
-  }
-  document.getElementById("showThumbImg").src = productList.path;
-  document.getElementById("showThumbImg").title = "";
-  document.getElementById("showSourceImg").src = productList.path;
-  document.getElementById("showSourceImg").title = "";
-  document.getElementById("showSourceImg").alt ="图片加载失败";
-  console.log("数据加载成功");
-  console.log("缩略图")
-  console.log("src:"+document.getElementById("showThumbImg").src);
-  console.log("高清图")
-  console.log("src:"+document.getElementById("showSourceImg").src);
-  
-  
-}
-
-
-// getProductInfo 函数保持不变
-async function getProductInfo(brand, productName) {
-  let response;
-  try {
-    response = await fetch('products.json'); 
-    if (!response.ok) throw new Error("Network response was not ok");
-    const products = await response.json();
-
-    return products.find(product => product.brand === brand && product.product === productName);
-  } catch (error) {
-    console.error('Failed to fetch or process products data:', error);
-    return null;
-  }
-}
-
- */
-
-/**
- * 加载产品图片并初始化 Etalage 悬停放大功能
+ * 加载产品图片并初始化 Etalage 悬停放大
  * @param {*} brandName
  * @param {*} productName
  * @returns {Promise<void>}
@@ -181,10 +339,9 @@ async function set_showImg(brandName, productName) {
 
     const imgPath = productList.path.trim();
 
-    // ✅ STEP 1: 彻底重置 #etalage DOM（核心！）
     const etalageEl = document.getElementById('etalage');
     if (!etalageEl) {
-      console.error('❌ #etalage 元素不存在');
+      console.error(' #etalage 元素不存在');
       return;
     }
     etalageEl.innerHTML = `
@@ -196,7 +353,6 @@ async function set_showImg(brandName, productName) {
       </li>
     `;
 
-    // ✅ STEP 2: 设置图片 src
     const thumbImg = document.getElementById('showThumbImg');
     const sourceImg = document.getElementById('showSourceImg');
     const linkEl = document.getElementById('showImg');
@@ -204,13 +360,11 @@ async function set_showImg(brandName, productName) {
     thumbImg.src = imgPath;
     sourceImg.src = imgPath;
 
-    // ✅ STEP 3: 等待加载
     await Promise.all([
       new Promise(r => thumbImg.complete ? r() : thumbImg.onload = r),
       new Promise(r => sourceImg.complete ? r() : sourceImg.onload = r)
     ]);
 
-    // ✅ STEP 4: 初始化 Etalage（带最强关闭策略）
     if (typeof $ !== 'undefined' && $.fn.etalage) {
       const $etalage = $('#etalage');
       if ($etalage.data('etalage')) $etalage.etalage('destroy');
@@ -229,27 +383,55 @@ async function set_showImg(brandName, productName) {
         show_descriptions: false
       });
 
-      // ✅ STEP 5: 防御性清理（万无一失）
       $etalage.find('.etalage_small_thumbs, .etalage_icon, .etalage_hint').remove();
       console.log('✅ Etalage 初始化完成，小缩略图已彻底禁用');
     }
 
   } catch (err) {
-    console.error('❌ set_showImg 异常:', err);
+    console.error('set_showImg 异常:', err);
     const link = document.getElementById('showImg');
     if (link) link.title = '加载失败，请刷新重试';
   }
 }
+/**
+ * 
+ * @param {*} brand 
+ * @param {*} productName 
+ * @returns 
+ */
+async function getProductInfoForKey(brand, productName,key) {
+ try {
+    const product = await getProductInfo(brand, productName);
+    if (!(key in product)) {
+      throw new Error(`产品没有字段: ${key}`);
+    }
+
+    return product[key];  
+
+  } catch (err) {
+    console.error("获取产品信息失败:", err.message);
+    return null; 
+  }
+}
+/**
+ * 
+ * @param {*} brand 
+ * @param {*} productName 
+ * @returns 
+ */
 async function getProductInfo(brand, productName) {
   let response;
   try {
     response = await fetch('products.json'); 
     if (!response.ok) throw new Error("Network response was not ok");
     const products = await response.json();
-
-    return products.find(product => product.brand === brand && product.product === productName);
+    re = products.find(product => product.brand === brand && product.product === productName)
+    if (!re) {
+      console.warn(`未找到产品: 品牌=${brand}, 产品名=${productName},结果为空。`);
+    }
+    return re;
   } catch (error) {
-    console.error('Failed to fetch or process products data:', error);
+    console.error('数据加载失败:', error);
     return null;
   }
 }

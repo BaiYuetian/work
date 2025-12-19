@@ -82,8 +82,9 @@ addEventListener("load", function() {
  <style type="text/css">
 
 </style>
- <script src="js/public.js"></script>
-<script src="js/single.js">	</script>
+<script src="js/product.js"></script> <!-- 商品数据相关操作 -->
+ <script src="js/public.js"></script> <!-- 模版栏数据 注入 --><!-- 用户信息操作-->
+<script src="js/single.js"> </script> <!--本页相关-->
 <!-- ／MY　-->
 </head>
 <body> 
@@ -95,7 +96,7 @@ addEventListener("load", function() {
 					<span id="showTime"></span></p>	
 			</div>	
 			<ul class="header-in">
-				<li><a href="account.html">我</a> </li>
+				<li><a id="MY">登录</a></li>
 				<li><a href="wishlist.html">愿望单</a></li>
 				<li><a href="cart.html">购物车</a></li>
 				<li ><a href="contact.html" >联系我们</a></li>
@@ -153,54 +154,37 @@ addEventListener("load", function() {
 
 		<div class="cart icon1 sub-icon1">
 			<h6 >购物车:
-				<span class="item">3 项</span>
-				<span class="rate">70$</span>
-						<li><a href="#" class="round"> </a>
-						<ul class="sub-icon1 list">
-						  <h3>最近新增的物品(3)</h3>
-						  <div class="shopping_cart">
-							  <div class="cart_box">
-							   	 <div class="message">
-							   	     <div class="alert-close"> </div> 
-										<div class="list_img"><img src="images/si.jpg" class="img-responsive" alt=""></div>
-										<div class="list_desc"><h4><a href="#">velit esse molestie</a></h4><!-- 商品名 -->
-										
-										<a href="#" class="offer">1 offer applied</a>
+				<span class="item">3 项</span><!-- js生成 最近添加的商品  此h3的id为titleShowNumInfo 注意更改此处html-->
+				<span class="rate">70$</span><!-- js生成 购物车总价 id=titleShowTotalPriceInfo 注意更改此处html-->
+				<li><a href="#" class="round"> </a>
+					<ul class="sub-icon1 list">
+					  	<h3>最近新增的物品(3)</h3> <!-- js生成 最近添加的商品  此h3的id为cartShowNumInfo 注意更改此处html-->
+					  	<div class="shopping_cart"> 
+							<div class="cart_box"> <!-- js生成 购物车的商品栏-->
+							   	<div class="message"> 
+						   	    	<div class="alert-close"></div> <!-- 购物车商品删除按钮-->
+									   	<div class="list_img">
+											<img src="" class="img-responsive" alt=""><!-- 商品图片 src 可通过 异步函数getProductInfoForKey(brand, productName,"path")获取-->
 										</div>
-		                              <div class="clearfix"></div>
-	                              </div>
-	                            </div>
-	                           <div class="cart_box">
-							   	 <div class="message1">
-							   	     <div class="alert-close1"> </div> 
-										<div class="list_img"><img src="images/si1.jpg" class="img-responsive" alt=""></div>
-										<div class="list_desc"><h4><a href="#">velit esse molestie</a></h4><!-- 商品名 -->
-										<a href="#" class="offer">1 offer applied</a>
-										</div>
-		                              <div class="clearfix"></div>
-	                              </div>
-	                            </div>
-								<div class="cart_box">
-							   	 <div class="message2">
-							   	     <div class="alert-close2"> </div> 
-										<div class="list_img"><img src="images/si.jpg" class="img-responsive" alt=""></div>
-										<div class="list_desc"><h4><a href="#">velit esse molestie</a></h4>
-										
-										<a href="#" class="offer">1 offer applied</a>
-										</div>
-		                              <div class="clearfix"></div>
-	                              </div>
-	                            </div>
+									</div>
+									<div class="list_desc">
+										<h4>
+											<a href="">productName x3</a><!-- 商品名 href= single.html?ProductName=productName&
+											&brand=brandName&size=size&color=color --><!-- 文本构成：商品名 空格 'x'数量  -->
+										</h4>
+										<a href="" class="offer"></a><!-- 此商品数量-->
+									</div>
+		                        	<div class="clearfix"></div>
+	                          	</div>
 	                        </div>
-							  <div class="check_button"><a href="cart.html">查看购物车</a></div>
-					      <div class="clearfix"></div>
-						</ul>
-					</li>
-</h6>
-						
-					</div>
-			<div class="clearfix"> </div>
+	    				</div>
+						<div class="clearfix"></div>
+					</ul>
+				</li>
+			</h6>
 		</div>
+		<div class="clearfix"> </div>
+	</div>
 		<div class="page">
 		</div>
 		<div class="content">
@@ -307,11 +291,13 @@ addEventListener("load", function() {
 					</div>
 					<div class="content-bottom-grid">
 					<h3>畅销榜</h3>
-					<div id="Bestsellers">
-						<!-- js生成 畅销榜 -->
+					<div id="bestsellers">
+						<!-- js生成 畅销榜  -->
+						<!--
+						 <div class="latest-grid">
+					</div>-->
 						
-					<div class="latest-grid">
-					</div>
+					
 						<div class="news">
 							<a href="single.html?"><img class="img-responsive" src="images/si.jpg" title="name" alt=""></a>
 						</div>

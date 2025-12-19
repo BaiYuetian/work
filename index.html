@@ -70,8 +70,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 <!-- MY  -->
-<script src="js/indexFor.js"></script>
+ <script src="js/product.js"></script>
+<script src="js/public.js"></script>
 <link rel="stylesheet" href="css/indexFor.css">
+<script src="js/indexFor.js"></script>
+
 <!-- /MY  -->
 </head>
 <body> 
@@ -79,10 +82,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div class="container">
 		<div class="header" id="home">	
 			<div class="header-para">
-				<p>The quick brown <span>fox jumps over a lazy dog. DJs flock by when MTV ax quiz prog.</span></p>
+				<p>
+					<span id="showTime"></span></p>	
 			</div>	
 			<ul class="header-in">
-				<li><a href="account.html">我</a> </li>
+				<li><a id="MY">登录</a></li>
 				<li><a href="wishlist.html">愿望单</a></li>
 				<li ><a href="contact.html" >联系我们</a></li>
 			</ul>
@@ -94,13 +98,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<a href="index.html"><img src="images/logo.png" alt="logo" ></a>
 			</div>
 			<div class="header-top-on">
-				<ul class="social-in">
-					<li><a href="#"><i> </i></a></li>						
-					<li><a href="#"><i class="ic"> </i></a></li>
-					<li><a href="#"><i class="ic1"> </i></a></li>
-					<li><a href="#"><i class="ic2"> </i></a></li>
-					<li><a href="#"><i class="ic3"> </i></a></li>
-				</ul>
+				
 			</div>
 				<div class="clearfix"> </div>
 		</div>
@@ -189,165 +187,25 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>
         <div class="copyrights">从这里收取 <a href="http://www.cssmoban.com/" >网页模板</a></div>
 		<div class="page">
-			<h6><a href="#">Page Title</a><b>|</b>Page description The quick, brown <span class="for">fox jumps over a lazy dog. DJs flock by when TV ax quiz prog.</span></h6>
+			<h6></h6>
 		</div>
 		<div class="content">
 
 			<div class="col-md-9">
 			<div class="shoe">
-				<img class="img-responsive" src="images/banner.jpg" alt="" >
-				<div class="shop">
-					<h4>SHOP <span>WOMEN</span></h4>
-					<p>SHOES FALL 2014</p>
-				</div>
+				<video width="100%" height="100%" controls="controls" muted autoplay >
+					<source id="videoPlayer" src=""  type="video/mp4">
+				</video>
+				<!--<img class="img-responsive" src="images/banner.jpg" alt="" >
+				 首页主图 -->
 			</div>
 				<div class="content-bottom">
-					<h3 id="isProductHere">Featured products</h3>
-					<div class="bottom-grid">
-						<div class="col-md-4 shirt">
-							<div class="bottom-grid-top">
-								<a href="single.html"><img class="img-responsive" src="images/sh.png" alt="" >
-								<div class="five">
-									<h6 >-50%</h6>
-								</div>
-								<div class="pre">
-									<p>Pure Slim Xe</p>
-									<span>$60.00</span>
-									<div class="clearfix"> </div>
-								</div></a>
-								
-								
-							</div>
-						</div>
-						<div class="col-md-4 shirt">
-							<div class="bottom-grid-top">
-								<a href="single.html"><img class="img-responsive" src="images/sh2.png" alt="" >
-								<div class="five">
-								<h6 class="one" >-50%</h6>
-								</div>
-								<div class="pre">
-									<p>Pure Slim Xe</p>
-									<span>$60.00</span>
-									<div class="clearfix"> </div>
-								</div></a>
-								
-								
-							</div>
-						</div>
-						<div class="col-md-4 shirt">
-							<div class="bottom-grid-top">
-								<a href="single.html"><img class="img-responsive" src="images/sh1.png" alt="" >
-								<div class="five">
-								<h6 class="one1" >-50%</h6>
-								</div>
-								<div class="pre">
-									<p>Pure Slim Xe</p>
-									<span>$60.00</span>
-									<div class="clearfix"> </div>
-								</div></a>
-								
-								
-							</div>
-						</div>
-						<div class="clearfix"> </div>
-					</div>
-					<div class="bottom-grid">
-						<div class="col-md-4 shirt">
-							<div class="bottom-grid-top">
-								<a href="single.html"><img class="img-responsive" src="images/sh2.png" alt="" >
-								<div class="five">
-								<h6 class="one" >-50%</h6>
-								</div>
-								<div class="pre">
-									<p>Pure Slim Xe</p>
-									<span>$60.00</span>
-									<div class="clearfix"> </div>
-								</div></a>
-								
-								
-							</div>
-						</div>
-						<div class="col-md-4 shirt">
-							<div class="bottom-grid-top">
-								<a href="single.html"><img class="img-responsive" src="images/sh3.png" alt="" >
-								<div class="five">
-								<h6 class="one1">-50%</h6>
-								</div>
-								<div class="pre">
-									<p>Pure Slim Xe</p>
-									<span>$60.00</span>
-									<div class="clearfix"> </div>
-								</div></a>
-								
-								
-							</div>
-						</div>
-						<div class="col-md-4 shirt">
-							<div class="bottom-grid-top">
-								<a href="single.html"><img class="img-responsive" src="images/sh4.png" alt="" >
-								<div class="five">
-								<h6 >-50%</h6>
-								</div>
-								<div class="pre">
-									<p>Pure Slim Xe</p>
-									<span>$60.00</span>
-									<div class="clearfix"> </div>
-								</div></a>
-								
-								
-							</div>
-						</div>
-						<div class="clearfix"> </div>
-					</div>
-					<div class="bottom-grid">
-						<div class="col-md-4 shirt">
-							<div class="bottom-grid-top">
-								<a href="single.html"><img class="img-responsive" src="images/sh5.png" alt="" >
-								<div class="five">
-								<h6 class="one1">-50%</h6>
-								</div>
-								<div class="pre">
-									<p>Pure Slim Xe</p>
-									<span>$60.00</span>
-									<div class="clearfix"> </div>
-								</div></a>
-								
-								
-							</div>
-						</div>
-						<div class="col-md-4 shirt">
-							<div class="bottom-grid-top">
-								<a href="single.html"><img class="img-responsive" src="images/sh.png" alt="" >
-								<div class="five">
-								<h6 >-50%</h6>
-								</div>
-								<div class="pre">
-									<p>Pure Slim Xe</p>
-									<span>$60.00</span>
-									<div class="clearfix"> </div>
-								</div></a>
-								
-								
-							</div>
-						</div>
-						<div class="col-md-4 shirt">
-							<div class="bottom-grid-top">
-								<a href="single.html"><img class="img-responsive" src="images/sh2.png" alt="" >
-								<div class="five">
-								<h6 class="one">-50%</h6>
-								</div>
-								<div class="pre">
-									<p>Pure Slim Xe</p>
-									<span>$60.00</span>
-									<div class="clearfix"> </div>
-								</div></a>
-								
-								
-							</div>
-						</div>
-						<div class="clearfix"> </div>
-					</div>
+					<h3 id="isProductHere">部分产品</h3>
+					<div id="mainBody"></div>
+					<div class="bottom-grid"></div>
 				</div>
+				<!-- 页面最底部放一个不可见的哨兵 -->
+<div id="sentinel" style="height: 1px; width: 1px; opacity: 0;"></div>
 				<ul class="start">
 					<li><span>1</span></li>
 					<li class="arrow"><a href="#">2</a></li>
@@ -574,7 +432,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</script>
 						<!-- script -->
 					</div>
-					<div class="content-bottom-grid">
+				</div>
 					<h3>畅销榜</h3>
 					<div class="latest-grid">
 						<div class="news">
@@ -632,7 +490,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</div>
 					<div class="clearfix"> </div>
 				</div>
-					</div>
+			</div>
 				<!-- / 畅销榜 -->
 				<div class="money">
 					<h3>支付方式</h3>

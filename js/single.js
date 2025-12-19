@@ -6,14 +6,19 @@ document.addEventListener("DOMContentLoaded", async function () {
                     urlParams.get('Productname') ||
                     urlParams.get('ProductName') ||null;  
   let brand = urlParams.get('brand') ||
-              urlParams.get('Brand') ||null;
+              urlParams.get('Brand') ||
+              urlParams.get("brandName")||null;
+  let size = urlParams.get('size') ||
+             urlParams.get('Size') ||null;
+  let color = urlParams.get('color') ||
+              urlParams.get('Color') ||null;
   let isHave = await getProductInfo(brand, productName);
   if (!isHave) {
       window.location.href = `404.html?text=找不到产品:${encodeURIComponent(productName)}`;
       return;
   }
   brandName = brand;
-  productName = productName;
+  productName = productName;``
   try{ 
   await setProduct(brand, productName);
   } catch(err){
@@ -36,7 +41,8 @@ document.addEventListener("DOMContentLoaded", async function () {
   }catch(err){  
     console.error('主图初始化失败:', err.message);
   }
-
+  initFromURL(); // 从URL初始化选择
+  setURL(); // 同步URL参数
 
 }  catch(err){
     console.error('页面初始化失败:', err.message);
@@ -130,14 +136,55 @@ async function colorSelect_Change(brandName, productName){
    */
   await setSize(brandName, productName);
   setPriceAndInventory();
- 
+  setURL();
 }
+
+
+function setURL() {
+  const url = new URL(window.location.href);
+  const params = new URLSearchParams(url.search);
+
+  // ✅ 1. 安全提取并保留 ProductName & Brand（兼容大小写）
+  const productName = 
+    params.get('ProductName') || 
+    params.get('Productname') || 
+    params.get('productname') || 
+    params.get('productName') || '';
+  const brand = 
+    params.get('Brand') || 
+    params.get('brand') || '';
+
+  // ✅ 2. 获取当前选中值（来自下拉框）
+  const colorSelect = document.querySelector('#colorSelect');
+  const sizeSelect = document.querySelector('#sizeSelect');
+  const color = colorSelect?.value?.trim() || null;
+  const size = sizeSelect?.value?.trim() || null;
+
+  // ✅ 3. 构建新参数：必须保留的 + 可选更新的
+  const newParams = new URLSearchParams();
+  if (productName) newParams.set('ProductName', productName);
+  if (brand) newParams.set('Brand', brand);
+  if (color) newParams.set('color', color);
+  if (size) newParams.set('size', size);
+
+  // ✅ 4. 特别保留 retURL（登录跳转关键！不能丢）
+  const retURL = params.get('retURL');
+  if (retURL) newParams.set('retURL', retURL);
+
+  // ✅ 5. 生成新 URL 并无刷新更新
+  const newUrl = `${url.pathname}?${newParams}`;
+  history.replaceState(null, '', newUrl);
+
+  console.log("✅ URL 已同步：", newUrl);
+}
+
 function sizeSelect_Change(brandName, productName) {
   /***
    * 容量选择变化
    * 设置价格和库存信息
  */
   setPriceAndInventory();
+  setURL();
   console.log('容量选择已更改');
 
 }
@@ -393,46 +440,34 @@ async function set_showImg(brandName, productName) {
     if (link) link.title = '加载失败，请刷新重试';
   }
 }
-/**
- * 
- * @param {*} brand 
- * @param {*} productName 
- * @returns 
- */
-async function getProductInfoForKey(brand, productName,key) {
- try {
-    const product = await getProductInfo(brand, productName);
-    if (!(key in product)) {
-      throw new Error(`产品没有字段: ${key}`);
+
+function initFromURL() {
+  const urlParams = new URLSearchParams(window.location.search);
+
+  // ✅ 安全获取 color & size（兼容大小写）
+  const color = urlParams.get('color') || urlParams.get('Color') || urlParams.get('COLOR') || '';
+  const size = urlParams.get('size') || urlParams.get('Size') || urlParams.get('SIZE') || '';
+
+  const colorSelect = document.querySelector('#colorSelect');
+  const sizeSelect = document.querySelector('#sizeSelect');
+
+  // ✅ 设置 color 下拉框（精确匹配 value）
+  if (colorSelect && color) {
+    const option = Array.from(colorSelect.options).find(opt => opt.value === color);
+    if (option) {
+      colorSelect.value = color;
+    } else {
+      console.warn(`⚠️ URL 中 color="${color}" 在下拉框中不存在，已忽略`);
     }
+  }
 
-    return product[key];  
-
-  } catch (err) {
-    console.error("获取产品信息失败:", err.message);
-    return null; 
+  // ✅ 设置 size 下拉框
+  if (sizeSelect && size) {
+    const option = Array.from(sizeSelect.options).find(opt => opt.value === size);
+    if (option) {
+      sizeSelect.value = size;
+    } else {
+      console.warn(`⚠️ URL 中 size="${size}" 在下拉框中不存在，已忽略`);
+    }
   }
 }
-/**
- * 
- * @param {*} brand 
- * @param {*} productName 
- * @returns 
- */
-async function getProductInfo(brand, productName) {
-  let response;
-  try {
-    response = await fetch('products.json'); 
-    if (!response.ok) throw new Error("Network response was not ok");
-    const products = await response.json();
-    re = products.find(product => product.brand === brand && product.product === productName)
-    if (!re) {
-      console.warn(`未找到产品: 品牌=${brand}, 产品名=${productName},结果为空。`);
-    }
-    return re;
-  } catch (error) {
-    console.error('数据加载失败:', error);
-    return null;
-  }
-}
-

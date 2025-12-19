@@ -3,9 +3,6 @@
 <head>
 <title>Account</title>
 
-<script src="js/registeredUser.js"></script><!-- accunt.js工具函数 -->
-    <script src="js/accunt.js"></script>
-
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="js/jquery.min.js"></script>
@@ -60,69 +57,74 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href="css/megamenu.css" rel="stylesheet" type="text/css" media="all" />
 <script type="text/javascript" src="js/megamenu.js"></script>
 <script>$(document).ready(function(){$(".megamenu").megamenu();});</script>		
+
+ <!-- MY JS -->
+<script src="js/registeredUser.js"></script><!-- accunt.js工具函数 -->
+	<script src="js/public.js"></script><!-- js注入页面数据 -->
+    <script src="js/accunt.js"></script><!-- 登录功能主要逻辑 -->
+
 </head>
 <body> 
 <!--header-->
 	<div class="container">
 		<div class="header" id="home">	
 			<div class="header-para">
-				<p>The quick brown <span>fox jumps over a lazy dog. DJs flock by when MTV ax quiz prog.</span></p>	
+				<p>
+					<span id="showTime"></span></p>	
 			</div>	
 			    <ul class="header-in">
-				<li><a href="account.html">我</a> </li>
-				<li><a href="wishlist.html"> 愿望单</a></li>
-				<li ><a href="contact.html" > 联系我们</a></li>
-			</ul>
+					<li><a id="MY">我</a> </li>
+					<li><a href="wishlist.html">愿望单</a></li>
+					<li><a href="cart.html">购物车</a></li>
+					<li ><a href="contact.html" >联系我们</a></li>
+				</ul>
 				<div class="clearfix"> </div>
 		</div>
-		<!---->
+		<!--
+		
+		-->
 		<div class="header-top">
 			<div class="logo">
 				<a href="index.html"><img src="images/logo.png" alt="" ></a>
 			</div>
 			<div class="header-top-on">
-				<ul class="social-in">
-					<li><a href="#"><i> </i></a></li>						
-					<li><a href="#"><i class="ic"> </i></a></li>
-					<li><a href="#"><i class="ic1"> </i></a></li>
-					<li><a href="#"><i class="ic2"> </i></a></li>
-					<li><a href="#"><i class="ic3"> </i></a></li>
-				</ul>
+				
 			</div>
 				<div class="clearfix"> </div>
 		</div>
 		<div class="header-bottom">
 			<div class="top-nav">
-				<ul class="megamenu skyblue">
-				    <li class="active grid">
-						<a  href="index.html">产品</a>
-					    <div class="megapanel">
+			  <ul class="megamenu skyblue">
+					<li class="active grid">
+						<a  href="#isProductHere ">商品</a>
+						<div class="megapanel">
 							<div class="row">
 								<div class="col1">
 									<div class="h_nav">
-										<h4>流行品牌</h4>
-										<ul>
-											<li><a href="store.html">Levis</a></li>
-											<li><a href="store.html">Persol</a></li>
-											<li><a href="store.html">Nike</a></li>
-											<li><a href="store.html">Edwin</a></li>
-											<li><a href="store.html">New Balance</a></li>
-											<li><a href="store.html">Jack & Jones</a></li>
-											<li><a href="store.html">Paul Smith</a></li>
-											<li><a href="store.html">Ray-Ban</a></li>
-											<li><a href="store.html">Wood Wood</a></li>
+										<ul id="showRandomProductAtnav">
+											<!-- 商品名 js生成-->
 										</ul>	
-									</div>												
+									</div>							
 								</div>
-						  	</div>
+							</div>
 						</div>
 					</li>
-			    </li>
-			 	<li class="grid">
-					<a  href="#">店铺</a>
-				</li>
-			</ul> 
-		</div>
+					<li class="active grid">
+						<a  href="">品牌</a>
+						<div class="megapanel">
+							<div class="row">
+								<div class="col1">
+									<div class="h_nav">
+										<ul id="showBrandAtnav">
+										</ul>	
+									</div>							
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul> 
+			</div>
+
 		<div class="cart icon1 sub-icon1">
 			<h6 >购物车:
 				<span class="item">3件商品</span>
@@ -188,8 +190,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="content">
 		<div class="account-in">
 							<h2>登录</h2>
+							<p id="showInfo"></p>
 							<div class="col-md-7 account-top" id="useEmailLogIn">
-								<form>
+								<form id="useEmailLogInForm">
 								<div>
 									<input type="email" placeholder="电子邮箱">
 								</div>
@@ -198,13 +201,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<input type="password" placeholder="密码">
 								</div>				
 									<input type="submit" value="登录">
-                                    <button type="button" id="loginSwitchE" style="background:none; border:none; color:blue; text-decoration:underline; cursor:pointer;">
-  使用用户名登录
-</button>
+                                    <button type="button" id="loginSwitchE" style="background:none; border:none; color:blue; 
+									text-decoration:underline; cursor:pointer;">使用用户名登录</button>
 								</form>
 							</div>
 							<div class="col-md-7 account-top" id="useUserNameLogIn">
-								<form>
+								<form id="useUserNameLogInForm">
 								<div>
 									<input type="text" placeholder="用户名称">
 								</div>
@@ -213,17 +215,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<input type="password" placeholder="密码">
 								</div>
 									<input type="submit" value="登录">
-                                    <button type="button" id="loginSwitchU" style="background:none; border:none; color:blue; text-decoration:underline; cursor:pointer;">
-  使用邮箱登录
-</button>
+                                    <button type="button" id="loginSwitchU" style="background:none; border:none; color:blue;
+									 text-decoration:underline; cursor:pointer;">使用邮箱登录</button>
 								</form>
 							</div>
 							<div class="col-md-5 left-account ">
-								<a href="single.html"><img class="img-responsive " src="images/ac.jpg" alt=""></a>
-								<div class="five-in">
-								<h1>25% </h1><span>折扣</span>
-								</div>
-								<a href="register.html" id="registerLink" class="create">创建一个账户</a>
+								<a href="single.html"><img class="img-responsive " src="images/logo.png" alt=""></a>
+								<a href="register.html" id="registerLink" class="create">创建一个账户</a><!--带查询字符串跳转至注册页面 slot:-->
 								<div class="clearfix"> </div>
 							</div>
 						<div class="clearfix"> </div>
@@ -233,7 +231,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>
 		<!---->
 		<div class="footer">
-			<p class="footer-class">Copyright &copy; 2015.Company name All rights reserved.More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></p>
+			<p class="footer-class">Copyright &copy; 2025.Company name All rights reserved.More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></p>
 			
 				<a href="#home" class="scroll to-Top" >  GO TO TOP!</a>
 		<div class="clearfix"> </div>

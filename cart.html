@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<!-- to zhang v1 -->
+<html>
+<head>
+<title>Cart</title>
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="js/jquery.min.js"></script>
+<!-- Custom Theme files -->
+<!--theme-style-->
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />	
+<!--//theme-style-->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Mihstore Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!--fonts-->
+<link href='http://fonts.useso.com/css?family=Cabin:400,500,600,700' rel='stylesheet' type='text/css'>
+<!--//fonts-->
+<!--//slider-script-->
+<script>$(document).ready(function(c) {
+	$('.alert-close').on('click', function(c){
+		$('.message').fadeOut('slow', function(c){
+	  		$('.message').remove();
+		});
+	});	  
+});
+</script>
+<script>$(document).ready(function(c) {
+	$('.alert-close1').on('click', function(c){
+		$('.message1').fadeOut('slow', function(c){
+	  		$('.message1').remove();
+		});
+	});	  
+});
+</script>
+<script>$(document).ready(function(c) {
+	$('.alert-close2').on('click', function(c){
+		$('.message2').fadeOut('slow', function(c){
+	  		$('.message2').remove();
+		});
+	});	  
+});
+</script>
+<script type="text/javascript" src="js/move-top.js"></script>
+<script type="text/javascript" src="js/easing.js"></script>
+<script type="text/javascript">
+					jQuery(document).ready(function($) {
+						$(".scroll").click(function(event){		
+							event.preventDefault();
+							$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+						});
+					});
+				</script>
+				<!-- start menu -->
+<link href="css/megamenu.css" rel="stylesheet" type="text/css" media="all" />
+<script type="text/javascript" src="js/megamenu.js"></script>
+<script>$(document).ready(function(){$(".megamenu").megamenu();});</script>		
+
+<!-- my js -->
+<script src="js/product.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/public.js"></script>
+<style>
+    /* 支付模态框样式 */
+    .payment-summary {
+        margin: 20px 0;
+        padding: 15px;
+        background-color: #f9f9f9;
+        border-radius: 4px;
+    }
+    
+    .checkout-btn {
+        background-color: #008CBA;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 20px 0;
+        cursor: pointer;
+        border: none;
+        border-radius: 4px;
+    }
+    
+    .checkout-btn:hover {
+        background-color: #007B9A;
+    }
+    
+    .checkout-btn:disabled {
+        background-color: #cccccc;
+        cursor: not-allowed;
+    }
+    
+    .fixed-payment-area {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background: white;
+        padding: 15px;
+        box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+        z-index: 999;
+    }
+    
+    .user-info {
+        display: inline-block;
+        margin-right: 15px;
+        color: #f02b63;
+        font-weight: bold;
+    }
+    
+    .logout-btn {
+        display: inline-block;
+        color: #008CBA;
+        cursor: pointer;
+        text-decoration: underline;
+    }
+</style>
+</head>
+<body> 
+<!--header-->
+	<div class="container">
+		<div class="header" id="home">	
+			<div class="header-para">
+				<p>
+					<span id="showTime"></span>
+				</p>	
+			</div>	
+			<ul class="header-in">
+				<li><a id="login-link" href="account.html">登录</a></li>
+				<li><a href="cart.html">购物车</a></li>
+			</ul>
+				<div class="clearfix"> </div>
+		</div>
+		<!---->
+		<div class="header-top">
+			<div class="logo">
+				<a href="index.html"><img src="images/logo.png" alt="" ></a>
+			</div>
+			<div class="header-top-on">
+				
+			</div>
+				<div class="clearfix"> </div>
+		</div>
+		
+		<div class="header-bottom">
+			<div class="top-nav">
+			  	<ul class="megamenu skyblue">
+					<li class="active grid">
+						<a  href="#isProductHere ">商品</a>
+						<div class="megapanel">
+							<div class="row">
+								<div class="col1">
+									<div class="h_nav">
+										<ul id="showRandomProductAtnav">
+											<!-- 商品名 js生成-->
+										</ul>	
+									</div>							
+								</div>
+							</div>
+						</div>
+					</li>
+					<li class="active grid">
+						<a  href="">品牌</a>
+						<div class="megapanel">
+							<div class="row">
+								<div class="col1">
+									<div class="h_nav">
+										<ul id="showBrandAtnav">
+										</ul>	
+									</div>							
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul> 
+			</div>
+
+		<div class="cart icon1 sub-icon1">
+			<a href="cart.html" style="text-decoration: none;">
+			<h6>购物车:
+				<span class="item"></span>
+				<span class="rate"></span>
+				<li><a href="#" class="round"> </a>
+					<ul class="sub-icon1 list">
+					  	<h3>购物车中的物品</h3> 
+					  	<div class="shopping_cart"> 
+				
+	                        </div>
+						<div class="clearfix"></div>
+					</ul>
+				</li>
+			</h6></a>
+		</div>
+		<div class="clearfix"> </div>
+	</div>
+	
+		<div class="page">
+				
+		</div>
+		<div class="content">
+			<span id="username" class="user-info" style="display:none;"></span>
+			<a id="logout" class="logout-btn" style="display:none;">退出登录</a>
+		<div class="check-out">
+    	    <h4 class="title">Shopping cart</h4>
+    	    <div class="shopping_cart">
+			  <div class="empty-cart text-center py-5">
+				  <p>🛒 购物车还是空的，快去挑选心仪商品吧！</p>
+				  <p><a href="index.html">← 继续购物</a></p>
+			  </div>
+			</div>
+            
+            <div class="payment-summary">
+                <h4>订单摘要</h4>
+                <p>商品总数: <span id="total-items">0</span></p>
+                <p>总计金额: <span id="total-amount">0.00</span>元</p>
+            </div>
+            
+            <!-- 结账按钮 -->
+            <button id="checkout-btn" class="checkout-btn" disabled>结账</button>
+            
+
+    	</div>
+	</div>
+		<!---->
+	<footer>
+		
+	</footer>
+
+	
+    <script>
+        $(document).ready(function() {
+            // 检查用户登录状态并显示用户名
+            function checkLoginStatus() {
+                if (typeof isUserLoggedIn !== 'undefined' && isUserLoggedIn()) {
+                    // 用户已登录，显示用户名和退出登录按钮
+                    const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+                    if (loggedInUser) {
+                        $('#username').text('欢迎，' + loggedInUser.username).show();
+                        $('#logout').show();
+                        $('#login-link').hide();
+                    }
+                } else {
+                    // 用户未登录，隐藏用户名和退出登录按钮
+                    $('#username').hide();
+                    $('#logout').hide();
+                    $('#login-link').show();
+                }
+            }
+            
+            // 退出登录功能
+            $('#logout').click(function(e) {
+                e.preventDefault();
+                // 清除登录状态
+                localStorage.removeItem("loggedInUser");
+                // 更新显示
+                checkLoginStatus();
+                // 提示用户
+                alert('您已退出登录');
+            });
+            
+            // 初始化登录状态检查
+            checkLoginStatus();
+            
+            if (typeof initShoppingCart !== 'undefined') {
+                window.shoppingCart = initShoppingCart();
+            }
+            function updatePaymentSummary() {
+                if (typeof shoppingCart !== 'undefined' && shoppingCart.getCartData) {
+                    const cart = shoppingCart.getCartData();
+                    let totalItems = 0;
+                    let totalAmount = 0;
+                    
+                    cart.forEach(item => {
+                        totalItems += parseInt(item.quantity) || 0;
+                    });
+                    
+                    $('#total-items').text(totalItems);
+                    if (typeof shoppingCart !== 'undefined' && shoppingCart.updateCartSummary) {
+                        shoppingCart.updateCartSummary().then(() => {
+                            $('#total-amount').text($('.rate').text().replace('￥', ''));
+                        });
+                    } else {
+                        $('#total-amount').text($('.rate').text().replace('￥', ''));
+                    }
+                    
+                    if (totalItems > 0) {
+                        $('#checkout-btn').prop('disabled', false);
+                    } else {
+                        $('#checkout-btn').prop('disabled', true);
+                    }
+                }
+            }
+            
+            setInterval(updatePaymentSummary, 1000);
+            updatePaymentSummary();
+            
+            $('#checkout-btn').click(function() {
+                alert('支付成功！');
+                
+                if (typeof shoppingCart !== 'undefined' && shoppingCart.saveCartData) {
+                    shoppingCart.saveCartData([]);
+                    shoppingCart.renderCartItems();
+                }
+                
+                // 支付成功后重新检查登录状态
+                checkLoginStatus();
+            });
+        });
+    </script>
+</body>
+</html>

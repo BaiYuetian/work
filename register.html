@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Account</title>
+
+
+
+
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="js/jquery.min.js"></script>	
+<!-- Custom Theme files -->
+<!--theme-style-->
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />	
+<!--//theme-style-->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Mihstore Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!--fonts-->
+<link href='http://fonts.useso.com/css?family=Cabin:400,500,600,700' rel='stylesheet' type='text/css'>
+<!--//fonts-->
+
+
+
+<!--//slider-script-->
+<script>$(document).ready(function(c) {
+	$('.alert-close').on('click', function(c){
+		$('.message').fadeOut('slow', function(c){
+	  		$('.message').remove();
+		});
+	});	  
+});
+</script>
+<script>$(document).ready(function(c) {
+	$('.alert-close1').on('click', function(c){
+		$('.message1').fadeOut('slow', function(c){
+	  		$('.message1').remove();
+		});
+	});	  
+});
+</script>
+<script>$(document).ready(function(c) {
+	$('.alert-close2').on('click', function(c){
+		$('.message2').fadeOut('slow', function(c){
+	  		$('.message2').remove();
+		});
+	});	  
+});
+</script>
+<script type="text/javascript" src="js/move-top.js"></script>
+<script type="text/javascript" src="js/easing.js"></script>
+<script type="text/javascript">
+					jQuery(document).ready(function($) {
+						$(".scroll").click(function(event){		
+							event.preventDefault();
+							$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+						});
+					});
+				</script>
+				<!-- start menu -->
+<link href="css/megamenu.css" rel="stylesheet" type="text/css" media="all" />
+<script type="text/javascript" src="js/megamenu.js"></script>
+<script>$(document).ready(function(){$(".megamenu").megamenu();});</script>		
+
+
+    <!-- my js -->
+    <script src="js/product.js"></script><!-- 放在 register.js前!-->
+    <script src="js/register.js"></script><!-- 注册·-->
+	<script src="js/public.js"></script>
+	<script src="js/cart.js"></script>
+</head>
+<body> 
+<!--header-->
+	<div class="container">
+		<div class="header" id="home">	
+			<div class="header-para">
+				<p>
+					<span id="showTime"></span>
+				</p>	
+			</div>		
+			<ul class="header-in">
+				<li><a id="MY">登录</a></li>
+				<li><a href="cart.html">购物车</a></li>
+			</ul>
+				<div class="clearfix"> </div>
+		</div>
+		<!---->
+		<div class="header-top">
+			<div class="logo">
+				<a href="index.html"><img src="images/logo.png" alt="" ></a>
+			</div>
+			
+				<div class="clearfix"> </div>
+		</div>
+		
+		<div class="header-bottom">
+			<div class="top-nav">
+			  	<ul class="megamenu skyblue">
+					<li class="active grid">
+						<a  href="#isProductHere ">商品</a>
+						<div class="megapanel">
+							<div class="row">
+								<div class="col1">
+									<div class="h_nav">
+										<ul id="showRandomProductAtnav">
+											<!-- 商品名 js生成-->
+										</ul>	
+									</div>							
+								</div>
+							</div>
+						</div>
+					</li>
+					<li class="active grid">
+						<a  href="">品牌</a>
+						<div class="megapanel">
+							<div class="row">
+								<div class="col1">
+									<div class="h_nav">
+										<ul id="showBrandAtnav">
+										</ul>	
+									</div>							
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul> 
+			</div>
+
+
+		<div class="cart icon1 sub-icon1">
+			<a href="cart.html" style="text-decoration: none;">
+			<h6>购物车:
+				<span class="item"></span>
+				<span class="rate"></span>
+				<li><a href="#" class="round"> </a>
+					<ul class="sub-icon1 list">
+					  	<h3>购物车中的物品</h3> 
+					  	<div class="shopping_cart"> 
+				
+	                        </div>
+						<div class="clearfix"></div>
+					</ul>
+				</li>
+			</h6></a>
+		</div>
+		<div class="clearfix"> </div>
+
+
+	</div>
+		
+		
+		<div class="page">
+		</div>
+		<div class="content">
+		<div class="account-in register-top">
+							<h2>注册</h2>
+							<div class=" account-top register">
+								<form>
+								<div>
+									<input type="text" autofocus="autofocus" placeholder="用户名称*" title=仅支持字母，数字及下划线，且必须以字母开头"" id="getUserNameIPT">
+								</div>
+                                <div>
+									<input type="password" placeholder="密码*" title="合法字符: a-Z,0-9 _" id="getPassWordIPT">
+								</div>
+								<div>
+									<input type="password" placeholder="确认密码*" title="合法字符: a-Z,0-9 _" id="getPassWordAgainIPT">
+								</div>
+								<div>
+									<span>电子邮件*</span>
+									<input type="email" id="getEmailIPT">
+								</div>
+                                    <div>
+        								<h6 id="showInfo"></h6>
+                                    </div>
+									<input type="submit"  value="注册">
+								</form>
+							</div>
+							
+					</div>	
+
+
+	</div>
+	<footer></footer>
+
+	<!---->
+</body>
+</html>

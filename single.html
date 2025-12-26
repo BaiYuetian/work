@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<title>Single</title>
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="js/jquery.min.js"></script>
+<!-- Custom Theme files -->
+<!--theme-style-->
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />	
+<!--//theme-style-->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Mihstore Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<script type="application/x-javascript"> 
+addEventListener("load", function() { 
+	setTimeout(hideURLbar, 0); }, false); 
+	function hideURLbar(){ window.scrollTo(0,1); 
+	} </script>
+<!--fonts
+<link href='http://fonts.useso.com/css?family=Cabin:400,500,600,700' rel='stylesheet' type='text/css'>-->
+<!--//fonts-->
+<!--//slider-script-->
+<script>$(document).ready(function(c) {
+	$('.alert-close').on('click', function(c){
+		$('.message').fadeOut('slow', function(c){
+	  		$('.message').remove();
+		});
+	});	  
+});
+</script>
+<script>$(document).ready(function(c) {
+	$('.alert-close1').on('click', function(c){
+		$('.message1').fadeOut('slow', function(c){
+	  		$('.message1').remove();
+		});
+	});	  
+});
+</script>
+<script>$(document).ready(function(c) {
+	$('.alert-close2').on('click', function(c){
+		$('.message2').fadeOut('slow', function(c){
+	  		$('.message2').remove();
+		});
+	});	  
+});
+</script>
+<link rel="stylesheet" href="css/etalage.css">
+<script src="js/jquery.etalage.min.js"></script>
+		<script>
+			jQuery(document).ready(function($){
+
+				$('#etalage').etalage({
+					thumb_image_width: 300,
+					thumb_image_height: 400,
+					source_image_width: 900,
+					source_image_height: 1200,
+					show_hint: true,
+					click_callback: function(image_anchor, instance_id){
+						// alert('Callback example:\nYou clicked on an image with the anchor: "'+image_anchor+'"\n(in Etalage instance: "'+instance_id+'")');
+					}
+				});
+
+			});
+		</script>
+		<script type="text/javascript" src="js/move-top.js"></script>
+<script type="text/javascript" src="js/easing.js"></script>
+<script type="text/javascript">
+					jQuery(document).ready(function($) {
+						$(".scroll").click(function(event){		
+							event.preventDefault();
+							$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+						});
+					});
+				</script>
+				<!-- start menu -->
+<link href="css/megamenu.css" rel="stylesheet" type="text/css" media="all" />
+<script type="text/javascript" src="js/megamenu.js"></script>
+<script>$(document).ready(function(){$(".megamenu").megamenu();});</script>		
+<!-- MY　-->
+ <style type="text/css">
+
+</style>
+<script src="js/product.js"></script> <!-- 商品数据相关操作 -->
+ <script src="js/public.js"></script> <!-- 模版栏数据 注入 --><!-- 用户信息操作-->
+<script src="js/cart.js">	</script><!-- 购物车相关-->
+<script src="js/single.js"> </script> <!--本页相关-->
+<!-- ／MY　-->
+</head>
+<body> 
+<!--header-->
+	<div class="container">
+		<div class="header" id="home">	
+			<div class="header-para">
+				<p>
+					<span id="showTime"></span>
+				</p>	
+			</div>	
+			<ul class="header-in">
+				<li><a id="MY">登录</a></li>
+				<li><a href="cart.html">购物车</a></li>
+			</ul>
+				<div class="clearfix"> </div>
+		</div>
+		<!---->
+		<div class="header-top">
+			<div class="logo">
+				<a href="index.html" style="text-decoration: none;">
+					<h1><img src="images/logo.png" alt="" ><h1></a>
+			</div>
+			
+				<div class="clearfix"> </div>
+		</div>
+		
+		<div class="header-bottom">
+			<div class="top-nav">
+			  	<ul class="megamenu skyblue">
+					<li class="active grid">
+						<a  href="#isProductHere ">商品</a>
+						<div class="megapanel">
+							<div class="row">
+								<div class="col1">
+									<div class="h_nav">
+										<ul id="showRandomProductAtnav">
+											<!-- 商品名 js生成-->
+										</ul>	
+									</div>							
+								</div>
+							</div>
+						</div>
+					</li>
+					<li class="active grid">
+						<a  href="">品牌</a>
+						<div class="megapanel">
+							<div class="row">
+								<div class="col1">
+									<div class="h_nav">
+										<ul id="showBrandAtnav">
+										</ul>	
+									</div>							
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul> 
+			</div>
+
+
+		<div class="cart icon1 sub-icon1">
+			<a href="cart.html" style="text-decoration: none;">
+			<h6>购物车:
+				<span class="item"></span>
+				<span class="rate"></span>
+				<li><a href="#" class="round"> </a>
+					<ul class="sub-icon1 list">
+					  	<h3>购物车中的物品</h3> 
+					  	<div class="shopping_cart"> 
+				
+	                        </div>
+						<div class="clearfix"></div>
+					</ul>
+				</li>
+			</h6></a>
+		</div>
+		<div class="clearfix"> </div>
+
+
+	</div>
+		<div class="page">
+		</div>
+		<div class="content">
+			<div class="col-md-9">
+			<div class="col-md-5 single-top">	
+				<ul id="etalage">
+					<li>
+						<a href="#" id="showImg" title="图片正在加载或加载失败"> <!-- 实现放大图片查看 -->
+							<img class="etalage_thumb_image img-responsive" id="showThumbImg"  src="" alt=""><!--缩略图 -->
+									<img class="etalage_source_image img-responsive" id="showSourceImg" src="" alt="" >
+								</a>
+					</li>
+				</ul>
+			</div>	
+			<div class="col-md-7 single-top-in">
+				<div class="single-para">
+					<h4 id="productNameInfo"></h4>
+						<div class="para-grid">
+							<span  class="add-to" id="priceInfo">￥:??</span>
+							<a href="#" class=" cart-to" id="addToCart">添加到购物车</a>					
+							<div class="clearfix"></div>
+						</div>
+						<h5 id="descriptionInfo"></h5>
+						<div class="available">
+							<h6>规格:</h6>
+							<ul>
+									<li id="showProductColor">
+										<label>颜色:</label>
+										<select id="colorSelect">
+											<!-- <option>js注入</option> -->
+										</select>
+									</li>
+									<li>容量:
+										<select id="sizeSelect">
+											<!-- <option>js注入容量信息</option> -->
+										</select>
+									</li>
+		
+								</ul>
+								<div>
+									<h6>数量:</h6>
+									<p id="inventoryInfo"></p>
+								</div>
+								
+						</div>
+							
+							<div class="share">
+							
+						</div>
+						</div>
+					</div>
+				<div class="clearfix"> </div>
+			 <ul id="flexiselDemo1">
+					<!-- 图片轮播 js生成 
+					<li>
+						<img src="img/HUAWEI/HUAWEI Mate 70 Air.jpg" />
+						<div class="grid-flex"> <!- style.css l-1012 ->
+							<a href="#">productName</a>
+							<p>brand</p>
+						</div>
+					</li>
+					-->
+			 </ul>
+			 <!-- 
+	    <script type="text/javascript">
+		 $(window).load(function() {
+			$("#flexiselDemo1").flexisel({
+				visibleItems: 5,
+				animationSpeed: 1000,
+				autoPlay: true,
+				autoPlaySpeed: 3000,    		
+				pauseOnHover: true,
+				enableResponsiveBreakpoints: true,
+		    	responsiveBreakpoints: { 
+		    		portrait: { 
+		    			changePoint:480,
+		    			visibleItems: 1
+		    		}, 
+		    		landscape: { 
+		    			changePoint:640,
+		    			visibleItems: 2
+		    		},
+		    		tablet: { 
+		    			changePoint:768,
+		    			visibleItems: 3
+		    		}
+		    	}
+		    });
+		    
+		});
+	</script>-->
+	<script type="text/javascript" src="js/jquery.flexisel.js"></script><!-- <- jq轮播 -->
+			</div>
+<div class="col-md-3 col-md">
+	
+			<div class=" possible-about"></div>
+				<div class="content-bottom-grid">
+					<h3>畅销榜</h3>
+					<div id="bestsellers">
+						<div class="loading">畅销榜加载中...</div>
+					</div>
+				<div class="clearfix"> </div>
+			</div>
+			<div class="clearfix"> </div>
+		</div>
+	</div>
+</div>
+
+	<footer></footer>
+
+
+</body>
+</html>
